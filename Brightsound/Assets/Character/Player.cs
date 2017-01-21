@@ -18,8 +18,11 @@ public class Player : MonoBehaviour {
     float aimAngle;
     public LightShot lightShot;
 
-    //Gets Collider for Platforms
+    //Gets Collider for Platforms and sets drop bool
+    //platform is used to switch rotational offset on platformeffector2d for downward movement then reseting it to 0
+    //Drop is to see if we are going through the platform so we can account and fix the double jumping bug
     GameObject platform;
+    public bool drop;
 
     void Awake()
     {
@@ -95,6 +98,14 @@ public class Player : MonoBehaviour {
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ThroughPlatform")
+        {
+            if (transform.position.y < collision.transform.position.y)
+                drop = true;
+        }
+    }
     void OnCollisionStay2D(Collision2D collision)
     {
         platform = collision.gameObject;
