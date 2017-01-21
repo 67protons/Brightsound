@@ -7,7 +7,6 @@ public class PlatformBehavior : MonoBehaviour {
     public Vector2 destination;
 
     public bool move;
-    public bool vert;
     Vector2 home;
     float timeIncrement = 0;
 
@@ -22,8 +21,6 @@ public class PlatformBehavior : MonoBehaviour {
     void Start()
     {        
         home = transform.position;
-        if (Mathf.Abs(destination.y - home.y) > 0)
-            vert = true;
     }
 
     void Update()

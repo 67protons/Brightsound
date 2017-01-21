@@ -11,15 +11,8 @@ public class Feet : MonoBehaviour {
     {              
         if (other.CompareTag("Ground") || other.CompareTag("SolidPlatform") || other.CompareTag("ThroughPlatform"))
         {
-            //This checks to see if the player went through the platform since it checks the trigger twice when going through it.
-            if (transform.parent.GetComponent<Player>().drop)
-            {
-                transform.parent.GetComponent<Player>().drop = false;
-            }
-            else {
-                isGrounded = true;
-                transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            }
+            isGrounded = true;
+            //transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }        
     }
     
