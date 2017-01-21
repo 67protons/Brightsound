@@ -3,21 +3,21 @@ using System.Collections;
 
 public class LightShot : MonoBehaviour
 {
-    public TrailRenderer trailRenderer;
+    public Collider2D centerShot;
+    public TrailRenderer wave1, wave2;
 
-    float velocity = 10f;
-    float frequency = 20.0f;
-    float magnitude = 0.5f;
+    public float velocity = 15f;
+    public float frequency = 5f;
+    public float magnitude = 0.5f;
 
-    float shotDuration = .5f;
-
-    float angle;
+    public float shotLength = .34f;
+    public float lifespan = 1f;
 
     public void Shoot(float angle)
     {
-        Debug.Log(angle);
-        this.angle = angle * Mathf.Deg2Rad;
-        StartCoroutine(ShootCoroutine(shotDuration));
+        this.transform.Rotate(0f, 0f, angle);
+        StartCoroutine(ShootCoroutine(shotLength));
+        Destroy(this.gameObject, lifespan);
     }
 
     IEnumerator ShootCoroutine(float shotDuration)
@@ -25,17 +25,14 @@ public class LightShot : MonoBehaviour
         float timeElapsed = 0f;
         while (timeElapsed <= shotDuration)
         {
-            Vector3 pos = trailRenderer.transform.position;
-            float xPrime = pos.x * Mathf.Cos(angle) + pos.y * Mathf.Sin(angle);
-            float yPrime = -pos.x * Mathf.Sin(angle) + pos.y * Mathf.Cos(angle);
+            //Move center shot
+            centerShot.transform.localPosition += new Vector3(velocity * Time.deltaTime, 0f, 0f);
 
-            float x = xPrime + velocity * Time.deltaTime;
-            float y = yPrime + Mathf.Sin(pos.x * frequency) * magnitude;
+            //Begin calculation for wave1 and wave2
+            Vector2 pos = centerShot.transform.localPosition;
+            wave1.transform.localPosition = new Vector3(pos.x, Mathf.Sin(pos.x * frequency) * magnitude, 0f);
+            wave2.transform.localPosition = new Vector3(pos.x, -Mathf.Sin(pos.x * frequency) * magnitude, 0f);
 
-            xPrime = (x * Mathf.Cos(angle)) - (y * Mathf.Sin(angle));
-            yPrime = (x * Mathf.Sin(angle)) + (y * Mathf.Cos(angle));
-
-            trailRenderer.transform.position = new Vector3(xPrime, yPrime, 0f);
             timeElapsed += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
