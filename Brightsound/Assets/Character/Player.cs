@@ -15,6 +15,9 @@ public class Player : MonoBehaviour {
     //Shooting
     public Transform cursorPivot;
 
+    //Gets Collider for Platforms
+    GameObject platform;
+
     void Awake()
     {
         this.rigidBody = this.GetComponent<Rigidbody2D>();
@@ -29,12 +32,20 @@ public class Player : MonoBehaviour {
             Jump();
         }
 
+        if (Input.GetKeyDown(KeyCode.S) && feet.isGrounded)
+        {            
+            GoThroughPlatform();            
+        }
+        if (platform != null && platform.tag == "ThroughPlatform" && platform.transform.position.y > transform.position.y)
+        {
+            platform.GetComponent<PlatformEffector2D>().rotationalOffset = 0;
+        }
         Aim();
     }
 
     void FixedUpdate()
     {
-        transform.Translate(new Vector3(moveDirection * speed * Time.deltaTime, 0f, 0f));
+        transform.Translate(new Vector3(moveDirection * speed * Time.deltaTime, 0f, 0f));        
     }
 
     void Jump()
@@ -58,4 +69,22 @@ public class Player : MonoBehaviour {
         float degreeAngle = radianAngle * Mathf.Rad2Deg;
         cursorPivot.rotation = Quaternion.Euler(new Vector3(0f, 0f, degreeAngle));
     }
+
+    void GoThroughPlatform()
+    {        
+        if (platform != null)
+        {
+            if (platform.tag == "ThroughPlatform")
+            {
+                //Need to fix how to go down, rotation offset flips the effector but it doesn't go down
+                transform.FindChild("Feet").GetComponent<Feet>().isGrounded = false;
+                platform.GetComponent<PlatformEffector2D>().rotationalOffset = 180;                
+            }            
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        platform = collision.gameObject;
+    }        
 }
