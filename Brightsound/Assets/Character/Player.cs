@@ -85,9 +85,12 @@ public class Player : MonoBehaviour {
         {
             if (platform.tag == "ThroughPlatform")
             {
-                //Need to fix how to go down, rotation offset flips the effector but it doesn't go down
+                //Not grounded and change the platform effector to allow going down
                 transform.FindChild("Feet").GetComponent<Feet>().isGrounded = false;
-                platform.GetComponent<PlatformEffector2D>().rotationalOffset = 180;                
+                platform.GetComponent<PlatformEffector2D>().rotationalOffset = 180;
+                //This odd code will fix the down key bug and allow players to freely pass through platforms
+                transform.GetComponent<BoxCollider2D>().enabled = false;
+                transform.GetComponent<BoxCollider2D>().enabled = true;
             }            
         }
     }
