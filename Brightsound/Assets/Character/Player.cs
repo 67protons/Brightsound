@@ -29,11 +29,7 @@ public class Player : MonoBehaviour {
             Jump();
         }
 
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 dir = mousePos - (Vector2)this.transform.position;
-        float radianAngle = Mathf.Atan2(dir.y, dir.x);
-        float degreeAngle = radianAngle * Mathf.Rad2Deg;
-        cursorPivot.rotation = Quaternion.Euler(new Vector3(0f, 0f, degreeAngle));
+        Aim();
     }
 
     void FixedUpdate()
@@ -43,16 +39,23 @@ public class Player : MonoBehaviour {
 
     void Jump()
     {
-        //Vector2 force = (transform.up * jumpForce) / Time.fixedDeltaTime;
-        StopCoroutine(Accelerate(0f));
-        StartCoroutine(Accelerate(jumpDuration));
-        
+        StopCoroutine(Accelerate(Vector2.zero, 0f));
+        StartCoroutine(Accelerate(new Vector2(0, jumpForce), jumpDuration));
     }
 
-    IEnumerator Accelerate(float lifetime)
+    IEnumerator Accelerate(Vector2 direction, float lifetime)
     {
-        rigidBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        rigidBody.AddForce(direction, ForceMode2D.Impulse);
         yield return new WaitForSeconds(lifetime);
         rigidBody.velocity = Vector2.zero;
+    }
+
+    void Aim()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 dir = mousePos - (Vector2)this.transform.position;
+        float radianAngle = Mathf.Atan2(dir.y, dir.x);
+        float degreeAngle = radianAngle * Mathf.Rad2Deg;
+        cursorPivot.rotation = Quaternion.Euler(new Vector3(0f, 0f, degreeAngle));
     }
 }
