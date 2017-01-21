@@ -12,9 +12,11 @@ public class GroundEnemyMovement : MonoBehaviour {
 
     //Moves enemies towards direction
 	void Update () {
+        //This moves it
         transform.Translate(direction * speed * Time.deltaTime);
+        //This adds to the range
         distanceTravelled += Mathf.Abs(direction.x * speed * Time.deltaTime);
-        Debug.Log(distanceTravelled);
+        //Once it hits max range, it will change direction
         if (distanceTravelled >= range)
         {
             ChangeDirection();           
