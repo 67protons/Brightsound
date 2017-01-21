@@ -19,6 +19,32 @@
 
 //}
 
+
+//using UnityEngine;
+//using System.Collections;
+
+//public class Shot : MonoBehaviour
+//{
+//    public float MoveSpeed = 5.0f;
+//    public float frequency = 20.0f;
+//    public float magnitude = 0.5f;
+
+//    private Vector3 axis;
+//    private Vector3 pos;
+
+//    void Start()
+//    {
+//        pos = transform.position;
+//        axis = transform.right;
+//    }
+
+//    void Update()
+//    {
+//        pos += transform.up * Time.deltaTime * MoveSpeed;
+//        transform.position = pos + axis * Mathf.Sin(Time.time * frequency) * magnitude;
+//    }
+//}
+
 using UnityEngine;
 using System.Collections;
 
@@ -26,28 +52,41 @@ public class Shot : MonoBehaviour
 {
     TrailRenderer trailRenderer;
 
-    float speed = 7.5f;
-    public Color c1 = Color.yellow;
-    public Color c2 = Color.red;
-    public int lengthOfLineRenderer = 20;
+    float velocity = 10f;
+    float frequency = 20.0f;
+    float magnitude = 0.5f;
+
+    float shotDuration = .5f;
+    
 
     void Awake()
     {
         trailRenderer = this.GetComponent<TrailRenderer>();
     }
-    void Start()
-    {
-        trailRenderer.material = new Material(Shader.Find("Particles/Additive"));
-        trailRenderer.startColor = c1;
-        trailRenderer.endColor = c2;
-    }
+
     void Update()
     {
-        //Vector3 pos = new Vector3(speed * Time.deltaTime, Mathf.Sin(Time.deltaTime * speed * 40f), 0);
-        //trailRenderer.transform.Translate(new Vector3(speed * Time.deltaTime, Mathf.Sin(trailRenderer.transform.position.x), 0f));
-        trailRenderer.transform.Translate(new Vector3(speed * Time.deltaTime, 0f, 0f));
-        trailRenderer.transform.position = new Vector3(trailRenderer.transform.position.x, Mathf.Sin(trailRenderer.transform.position.x), 0f);
-        
-        //trailRenderer.transform.position = pos;
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(Shoot(shotDuration));
+        }
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+
+    }
+
+    IEnumerator Shoot(float shotDuration)
+    {
+        float timeElapsed = 0f;
+        while (timeElapsed <= shotDuration)
+        {
+            Vector3 pos = trailRenderer.transform.position;
+            pos += new Vector3(velocity * Time.deltaTime, 0f, 0f);
+            trailRenderer.transform.position = new Vector3(pos.x, Mathf.Sin(pos.x * frequency) * magnitude, 0f);
+            timeElapsed += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

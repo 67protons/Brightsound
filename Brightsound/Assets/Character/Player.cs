@@ -14,6 +14,9 @@ public class Player : MonoBehaviour {
 
     //Shooting
     public Transform cursorPivot;
+    Vector2 aimDir;
+    float aimAngle;
+    public LightShot lightShot;
 
     //Gets Collider for Platforms
     GameObject platform;
@@ -41,6 +44,12 @@ public class Player : MonoBehaviour {
             platform.GetComponent<PlatformEffector2D>().rotationalOffset = 0;
         }
         Aim();
+
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            LightShot newLightShot = Instantiate(lightShot, this.transform.position, Quaternion.identity);
+            newLightShot.Shoot(aimAngle);
+        }
     }
 
     void FixedUpdate()
@@ -64,10 +73,10 @@ public class Player : MonoBehaviour {
     void Aim()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 dir = mousePos - (Vector2)this.transform.position;
-        float radianAngle = Mathf.Atan2(dir.y, dir.x);
-        float degreeAngle = radianAngle * Mathf.Rad2Deg;
-        cursorPivot.rotation = Quaternion.Euler(new Vector3(0f, 0f, degreeAngle));
+        aimDir = mousePos - (Vector2)this.transform.position;
+        float radianAngle = Mathf.Atan2(aimDir.y, aimDir.x);
+        aimAngle = radianAngle * Mathf.Rad2Deg;
+        cursorPivot.rotation = Quaternion.Euler(new Vector3(0f, 0f, aimAngle));
     }
 
     void GoThroughPlatform()
