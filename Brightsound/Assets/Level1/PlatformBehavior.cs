@@ -6,26 +6,55 @@ public class PlatformBehavior : MonoBehaviour {
    
     public Vector2 destination;
 
-    bool solid, move;
+    public bool move;
+    public bool vert;
     Vector2 home;
+    float timeIncrement = 0;
+
+    float bounceFrequency = 1f;
+    float bounceClock = 0f;
+
+    public float smoothTime = 0.3f;
+    private float xVelocity = 0.0f;
+    private float yVelocity = 0.0f;
+    public Vector2 platformVelocity;
 
     void Start()
-    {
-        //Sets if you can go through platform
-        if (this.gameObject.tag == "SolidPlatform")        
-            solid = true;        
-        else
-            solid = false;
+    {        
         home = transform.position;
+        if (Mathf.Abs(destination.y - home.y) > 0)
+            vert = true;
     }
 
     void Update()
     {
         if (move)
-        {
-            Debug.Log("same");
+        {            
+            float newPositionX = Mathf.SmoothDamp(transform.position.x, destination.x, ref xVelocity, smoothTime);
+            float newPositionY = Mathf.SmoothDamp(transform.position.y, destination.y, ref yVelocity, smoothTime);
+            platformVelocity = ((new Vector3(newPositionX, newPositionY, 0) - transform.position) / Time.deltaTime);
+            transform.position = new Vector2(newPositionX, newPositionY);            
+            if (Mathf.Abs(destination.x - transform.position.x) < 0.05f && Mathf.Abs(destination.y - transform.position.y) < 0.05f)
+            {
+                transform.position = destination;
+                Vector2 temp = home;
+                home = destination;
+                destination = temp;
+            }
+
+            //timeIncrement += Time.deltaTime;
+            //transform.position = Vector2.Lerp(home, destination, timeIncrement * speed);
+            //if (timeIncrement*speed >= 1)
+            //{
+            //    timeIncrement = 0;
+            //    Vector2 temp = home;
+            //    home = destination;
+            //    destination = temp;
+            //}            
+            //Vector2 direction = destination - home;
+            //direction.Normalize();
+            //transform.Translate(direction * speed * Time.deltaTime * Mathf.Sin(bounceClock * bounceFrequency));
         }
 
-    }
-    
+    }  
 }

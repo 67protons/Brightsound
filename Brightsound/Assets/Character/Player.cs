@@ -45,6 +45,7 @@ public class Player : MonoBehaviour {
         if (platform != null && platform.tag == "ThroughPlatform" && platform.transform.position.y > transform.position.y)
         {
             platform.GetComponent<PlatformEffector2D>().rotationalOffset = 0;
+            platform = null;
         }
         Aim();
 
@@ -57,12 +58,23 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
-        transform.Translate(new Vector3(moveDirection * speed * Time.deltaTime, 0f, 0f));        
+        transform.Translate(new Vector3(moveDirection * speed * Time.deltaTime, 0f, 0f));
+        if (platform != null)
+        {
+            if (platform.tag == "SolidPlatform" || platform.tag == "ThroughPlatform")
+            {
+                if (platform.GetComponent<PlatformBehavior>().move && rigidBody.velocity.y <= 0.1f && transform.FindChild("Feet").GetComponent<Feet>().isGrounded)
+                {
+                    rigidBody.velocity = platform.GetComponent<PlatformBehavior>().platformVelocity;
+                }
+            }
+        }
     }
 
     void Jump()
     {
         StopCoroutine(Accelerate(Vector2.zero, 0f));
+        rigidBody.velocity = new Vector2(0,0);
         StartCoroutine(Accelerate(new Vector2(0, jumpForce), jumpDuration));
     }
 
@@ -88,9 +100,11 @@ public class Player : MonoBehaviour {
         {
             if (platform.tag == "ThroughPlatform")
             {
+                rigidBody.velocity = new Vector2(0, 0);
                 //Not grounded and change the platform effector to allow going down
                 transform.FindChild("Feet").GetComponent<Feet>().isGrounded = false;
                 platform.GetComponent<PlatformEffector2D>().rotationalOffset = 180;
+
                 //This odd code will fix the down key bug and allow players to freely pass through platforms
                 transform.GetComponent<BoxCollider2D>().enabled = false;
                 transform.GetComponent<BoxCollider2D>().enabled = true;
@@ -106,6 +120,7 @@ public class Player : MonoBehaviour {
                 drop = true;
         }
     }
+
     void OnCollisionStay2D(Collision2D collision)
     {
         platform = collision.gameObject;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Feet : MonoBehaviour {
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool isGrounded = false;
        
     void OnTriggerEnter2D(Collider2D other)
@@ -18,6 +18,7 @@ public class Feet : MonoBehaviour {
             }
             else {
                 isGrounded = true;
+                transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             }
         }        
     }
