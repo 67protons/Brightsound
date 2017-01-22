@@ -10,7 +10,7 @@ public class LightHead : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player") && !other.CompareTag("Lightwave"))
+        if (!other.CompareTag("Player") && !other.CompareTag("Lightwave") && !other.CompareTag("Soundwave"))
         {
             hasCollided = true;
         }
