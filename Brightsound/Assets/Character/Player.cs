@@ -165,7 +165,14 @@ public class Player : MonoBehaviour {
         StartCoroutine(BlinkRed());
         if (this.health <= 0)
         {
-            Debug.Log("YOU HAVE DIED! I HAVE WRITTEN NO CODE FOR THIS YET. K-keep playing if you want");
+            MasterGameManager.instance.audioManager.PlaySFXClip(playerSounds.deathSFX);
+            sprite.color = Color.white;
+            MasterGameManager.instance.sceneManager.LoadScene(MasterGameManager.instance.sceneManager.currentScene, true);
+            //Debug.Log("YOU HAVE DIED! I HAVE WRITTEN NO CODE FOR THIS YET. K-keep playing if you want");
+        }
+        else
+        {
+            MasterGameManager.instance.audioManager.randomSFX(playerSounds.damageSFXs);
         }
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerSounds : MonoBehaviour {
     public AudioClip jumpSFX;
     public AudioClip doubleJumpSFX;
+    public AudioClip[] damageSFXs;
+    public AudioClip deathSFX;
 
     void OnTriggerEnter2D(Collider2D other)
     {
