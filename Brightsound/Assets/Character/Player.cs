@@ -126,6 +126,10 @@ public class Player : MonoBehaviour {
 
     void ManageState()
     {
+        if (Input.GetAxis("Horizontal") == 0 || !MasterGameManager.instance.inputActive)
+        {
+            moveDirection = 0f;
+        }
         if (feet.isGrounded && rigidBody.velocity.y < 0.01f)
         {
             jumpCount = 0;

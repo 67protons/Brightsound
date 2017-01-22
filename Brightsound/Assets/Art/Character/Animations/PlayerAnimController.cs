@@ -86,17 +86,18 @@ public class PlayerAnimController : MonoBehaviour
                 animator.SetBool("walk", true);
                 animator.SetBool("backward", false);
             }
+            //Reset if none of the above
+            else
+            {
+                animator.SetBool("walk", false);
+                animator.SetBool("backward", false);
+                animator.SetBool("run", false);
+            }
         }
 
 
 
-        //Reset if none of the above
-        else
-        {
-            animator.SetBool("walk", false);
-            animator.SetBool("backward", false);
-            animator.SetBool("run", false);
-        }
+        
 
 
         //Jumping Animation

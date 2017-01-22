@@ -22,7 +22,7 @@ public class FlyEnemyMovement : MonoBehaviour {
     {
         //Moves enemy with sine wave as well
         transform.Translate(directionX * speed * Time.deltaTime);
-        transform.localPosition = new Vector2(transform.position.x, amplitudeY * Mathf.Sin(bounceClock * bounceFrequency));
+        transform.localPosition = new Vector2(transform.position.x, transform.position.y + (amplitudeY * Mathf.Sin(bounceClock * bounceFrequency)));
         
         //This adds to range distance and doesn't reset sine wave to 0
         float distance = Mathf.Abs(directionX.x * speed * Time.deltaTime);
@@ -37,10 +37,10 @@ public class FlyEnemyMovement : MonoBehaviour {
     }
 
     //Changes directions when colliding with boundaries or anything
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        ChangeDirection();
-    }
+    //void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    ChangeDirection();
+    //}
 
     //Function that changes direction of enemy movement
     void ChangeDirection()

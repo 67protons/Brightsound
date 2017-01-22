@@ -31,7 +31,8 @@ public class TriggerCameraMovement : MonoBehaviour {
 
     //entrance or exit?
     public bool entrance;
-    bool exit; 
+    bool exit;
+    public bool cutscene = false;   
     
     void Start()
     {        
