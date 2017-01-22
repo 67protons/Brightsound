@@ -10,6 +10,6 @@ public class AudioFadeOut : MonoBehaviour {
 
     public void activateFadeOut() {
         activated = true;
-        StartCoroutine(AudioManager.instance.fadeOut(trackSource, fadeRate));
+        StartCoroutine(MasterGameManager.instance.audioManager.fadeOut(trackSource, fadeRate));
     }
 }

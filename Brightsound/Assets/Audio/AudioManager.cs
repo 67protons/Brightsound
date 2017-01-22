@@ -9,19 +9,19 @@ public class AudioManager : MonoBehaviour {
     [SerializeField]
     private AudioSource musicSource;
 
-    public static AudioManager instance = null;
+    //public static AudioManager instance = null;
 
-	void Start ()
-    {
-        //Check for AudioManager
-        if (instance == null)
-            instance = this;
-        else if (instance != this)
-            Destroy(this.gameObject);
+	//void Start ()
+ //   {
+ //       //Check for AudioManager
+ //       if (instance == null)
+ //           instance = this;
+ //       else if (instance != this)
+ //           Destroy(this.gameObject);
 
-        //Use if you don't want to destroy between scenes.
-        DontDestroyOnLoad(this.gameObject);	
-	}
+ //       //Use if you don't want to destroy between scenes.
+ //       DontDestroyOnLoad(this.gameObject);	
+	//}
 	
     public void PlaySFXClip(AudioClip clip)
     {

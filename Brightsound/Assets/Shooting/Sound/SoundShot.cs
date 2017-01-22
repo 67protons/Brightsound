@@ -23,7 +23,7 @@ public class SoundShot : MonoBehaviour {
 
     public void Shoot(float angle, Vector2 direction)
     {
-        AudioManager.instance.PlaySFXClip(shotSound);
+        MasterGameManager.instance.audioManager.PlaySFXClip(shotSound);
         this.transform.Rotate(0f, 0f, angle);
         this.aimDirection = direction;
 

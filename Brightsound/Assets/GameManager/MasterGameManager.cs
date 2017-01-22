@@ -6,6 +6,7 @@ public class MasterGameManager : MonoBehaviour {
     public static MasterGameManager instance = null;
 
     public SceneManagerWrapper sceneManager;
+    public AudioManager audioManager;
 
     void Awake()
     {

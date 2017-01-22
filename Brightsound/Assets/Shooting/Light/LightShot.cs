@@ -28,7 +28,7 @@ public class LightShot : MonoBehaviour
 
     public void Shoot(float angle)
     {
-        AudioManager.instance.PlaySFXClip(shotSound);
+        MasterGameManager.instance.audioManager.PlaySFXClip(shotSound);
         this.transform.Rotate(0f, 0f, angle);
         StartCoroutine(ShootCoroutine(shotLength));
         Destroy(this.gameObject, lifespan);
