@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
     public float jumpForce = 500f;
     public float jumpDuration = 0.5f;
     private float moveDirection = 0f;
+    public int maxJumps = 1;
+    private int jumpCount = 0;
 
     //Shooting
     public Transform cursorPivot;
@@ -38,7 +40,9 @@ public class Player : MonoBehaviour {
     {
         moveDirection = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space) && feet.isGrounded)
+        if (feet.isGrounded)
+            jumpCount = 0;
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
             Jump();
         }
@@ -100,6 +104,7 @@ public class Player : MonoBehaviour {
 
     void Jump()
     {
+        jumpCount++;
         StopCoroutine(Accelerate(Vector2.zero, 0f));
         rigidBody.velocity = new Vector2(0,0);
         StartCoroutine(Accelerate(new Vector2(0, jumpForce), jumpDuration));
@@ -148,6 +153,8 @@ public class Player : MonoBehaviour {
     {
         if (collision.collider.tag.Contains("Platform"))
             platform = collision.gameObject;
+
+
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -161,6 +168,18 @@ public class Player : MonoBehaviour {
         {
             boostDir = other.transform.parent.GetComponent<SoundShot>().aimDirection.normalized * boostedEnterSpeed;
             rigidBody.AddForce(boostDir, ForceMode2D.Impulse);
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Lightwave"))
+        {
+            maxJumps = 2;
+        }
+        else
+        {
+            maxJumps = 1;
         }
     }
 }

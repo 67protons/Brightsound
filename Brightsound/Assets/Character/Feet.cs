@@ -6,6 +6,9 @@ public class Feet : MonoBehaviour {
 
     //[HideInInspector]
     public bool isGrounded = false;
+
+    [SerializeField]
+    private Player parent;
        
     void OnTriggerEnter2D(Collider2D other)
     {              
