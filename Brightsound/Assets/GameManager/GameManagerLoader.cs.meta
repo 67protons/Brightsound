@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 22ca263b24b65264382ba05c81e813be
+timeCreated: 1485111608
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - gameManager: {fileID: 1282734037652214, guid: 0a298bf1232f55c4d97c4d381a539ef6,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
