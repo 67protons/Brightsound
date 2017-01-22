@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
     Rigidbody2D rigidBody;
     public Feet feet;
     public float speed = 5f;
+    public Vector2 knockbackForce = new Vector2(200f, 200f);
     public Vector2 deceleration = new Vector2(1f, 0.5f);
     public float boostedEnterSpeed = 5f;
     public Vector2 boostDir;
@@ -237,6 +238,8 @@ public class Player : MonoBehaviour {
             {
                 Enemy enemyScript = other.collider.GetComponent<Enemy>();
                 Damage(enemyScript.damage);
+                SwitchOffGravity(.1f);
+                rigidBody.AddForce(new Vector2(Mathf.Pow(-1, Convert.ToInt32(this.transform.position.x < other.transform.position.x)) * knockbackForce.x, knockbackForce.y), ForceMode2D.Impulse);
             }
         }
     }
@@ -249,13 +252,21 @@ public class Player : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        //if (other.CompareTag("Enemy"))
+        //{
+        //    if (!this.invulernable)
+        //    {
+        //        Enemy enemyScript = other.GetComponent<Enemy>();
+        //        Damage(enemyScript.damage);
+        //    }
+        //}
+
         if (other.CompareTag("Soundwave"))
         {
             boostDir = other.transform.parent.GetComponent<SoundShot>().aimDirection.normalized;
             if (feet.isGrounded)
             {
-                rigidBody.gravityScale = 0f;
-                Invoke("GravityOn", 0.5f);
+                SwitchOffGravity(0.25f);
             }
             
             rigidBody.AddForce(boostDir * boostedEnterSpeed, ForceMode2D.Impulse);
@@ -282,6 +293,12 @@ public class Player : MonoBehaviour {
         {
             maxJumps = 1;
         }
+    }
+
+    void SwitchOffGravity(float duration)
+    {
+        rigidBody.gravityScale = 0f;
+        Invoke("GravityOn", duration);
     }
 
     void GravityOn()
