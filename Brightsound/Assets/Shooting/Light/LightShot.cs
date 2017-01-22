@@ -33,7 +33,7 @@ public class LightShot : MonoBehaviour
 
             //Begin calculation for wave1 and wave2
             Vector2 pos = centerShot.transform.localPosition;
-            Debug.Log(pos);
+            //Debug.Log(pos);
             wave1.transform.localPosition = new Vector3(pos.x, Mathf.Sin(pos.x * frequency) * magnitude, 0f);
             wave2.transform.localPosition = new Vector3(pos.x, -Mathf.Sin(pos.x * frequency) * magnitude, 0f);
 
