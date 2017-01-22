@@ -68,26 +68,27 @@ public class Player : MonoBehaviour {
             SoundShot newSoundShot = Instantiate(soundShot, cursorLocation.position, Quaternion.identity);
             newSoundShot.Shoot(aimAngle, aimDir);
         }
-    }
-
-    void FixedUpdate()
-    {
 
         if (platform != null)
         {
             if (platform.tag == "SolidPlatform" || platform.tag == "ThroughPlatform")
             {
-                if (platform.GetComponent<PlatformBehavior>().move /*&& rigidBody.velocity.y <= 0.01f */&& transform.FindChild("Feet").GetComponent<Feet>().isGrounded)
+                if (platform.GetComponent<PlatformBehavior>().move && transform.FindChild("Feet").GetComponent<Feet>().isGrounded)
                 {
                     idleSpeed = platform.GetComponent<PlatformBehavior>().platformVelocity;
-                    //rigidBody.velocity = platform.GetComponent<PlatformBehavior>().platformVelocity;
-                }               
+                }
             }
         }
         else
         {
             idleSpeed = Vector2.zero;
         }
+    }
+
+    void FixedUpdate()
+    {
+
+        Debug.Log(idleSpeed);
 
         //Deceleration
         if (Mathf.Abs(rigidBody.velocity.x) > deceleration.x * Time.deltaTime){
@@ -138,8 +139,8 @@ public class Player : MonoBehaviour {
                 platform.GetComponent<PlatformEffector2D>().rotationalOffset = 180;
 
                 //This odd code will fix the down key bug and allow players to freely pass through platforms
-                transform.GetComponent<BoxCollider2D>().enabled = false;
-                transform.GetComponent<BoxCollider2D>().enabled = true;
+                //transform.GetComponent<BoxCollider2D>().enabled = false;
+                //transform.GetComponent<BoxCollider2D>().enabled = true;
             }            
         }
     }
@@ -159,9 +160,10 @@ public class Player : MonoBehaviour {
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.tag.Contains("Platform"))
-            platform = null;
+        //if (collision.collider.tag.Contains("Platform"))
+        //    platform = null;
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Soundwave"))
