@@ -8,6 +8,8 @@ public class LightShot : MonoBehaviour
     public LightHead head;
     public TrailRenderer wave1, wave2;
 
+    public int weaponDamage = 1;
+
     public float velocity = 15f;
     public float frequency = 5f;
     public float magnitude = 0.5f;
@@ -54,6 +56,14 @@ public class LightShot : MonoBehaviour
 
             timeElapsed += Time.deltaTime;
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<Enemy>().Damage(weaponDamage);
         }
     }
 }
