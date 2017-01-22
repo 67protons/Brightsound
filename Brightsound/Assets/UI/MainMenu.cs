@@ -11,6 +11,11 @@ public class MainMenu : MonoBehaviour
     public AudioClip outInTheCold;
     public AudioSource cutsceneTrigger;
 
+    void Awake()
+    {
+        MasterGameManager.instance.inputActive = false;
+    }
+
     public void ClickStart()
     {
         //MasterGameManager.instance.sceneManager.LoadScene("Level1", false);
