@@ -3,7 +3,9 @@ using System.Collections;
 
 public class LightShot : MonoBehaviour
 {
-    public Transform centerShot;
+    BoxCollider2D hitbox;
+
+    public LightHead head;
     public TrailRenderer wave1, wave2;
 
     public float velocity = 15f;
@@ -14,6 +16,13 @@ public class LightShot : MonoBehaviour
     public float lifespan = 1f;
 
     public AudioClip shotSound;
+
+    private float distanceCovered = 0f;
+
+    void Awake()
+    {
+        hitbox = this.GetComponent<BoxCollider2D>();
+    }
 
     public void Shoot(float angle)
     {
@@ -26,14 +35,20 @@ public class LightShot : MonoBehaviour
     IEnumerator ShootCoroutine(float shotDuration)
     {
         float timeElapsed = 0f;
-        while (timeElapsed <= shotDuration)
+        while (timeElapsed <= shotDuration && !head.hasCollided)
         {
             //Move center shot
-            centerShot.transform.localPosition += new Vector3(velocity * Time.deltaTime, 0f, 0f);
+            head.transform.localPosition += new Vector3(velocity * Time.deltaTime, 0f, 0f);
 
             //Begin calculation for wave1 and wave2
-            Vector2 pos = centerShot.transform.localPosition;
-            //Debug.Log(pos);
+            Vector2 pos = head.transform.localPosition;
+            hitbox.size = new Vector2(pos.x, hitbox.size.y);
+            hitbox.offset = new Vector2(hitbox.size.x / 2, 0f);
+
+            distanceCovered = pos.x;
+            //head.particles.main.startLifetime = distanceCovered;
+            head.particles.startLifetime = distanceCovered * 0.05f;
+
             wave1.transform.localPosition = new Vector3(pos.x, Mathf.Sin(pos.x * frequency) * magnitude, 0f);
             wave2.transform.localPosition = new Vector3(pos.x, -Mathf.Sin(pos.x * frequency) * magnitude, 0f);
 

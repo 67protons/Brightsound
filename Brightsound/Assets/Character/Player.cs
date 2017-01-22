@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
     private float moveDirection = 0f;
     public int maxJumps = 1;
     private int jumpCount = 0;
+    Collider2D lightwave = null;
 
     //Shooting
     public Transform cursorPivot;
@@ -25,7 +26,12 @@ public class Player : MonoBehaviour {
     Vector2 aimDir;
     float aimAngle;
     public LightShot lightShot;
+    public float lightCooldown = 2f;
+    private float lightTimer = 0f;
     public SoundShot soundShot;
+    public float soundCooldown = 2f;
+    private float soundTimer = 0f;
+
 
     //Gets Collider for Platforms and sets drop bool
     //platform is used to switch rotational offset on platformeffector2d for downward movement then reseting it to 0    
@@ -56,17 +62,18 @@ public class Player : MonoBehaviour {
             platform.GetComponent<PlatformEffector2D>().rotationalOffset = 0;
             platform = null;
         }
-        Aim();
 
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.Mouse0) && lightTimer <= 0)
         {
             LightShot newLightShot = Instantiate(lightShot, cursorLocation.position, Quaternion.identity);
             newLightShot.Shoot(aimAngle);
+            lightTimer = lightCooldown;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && soundTimer <= 0)
         {
             SoundShot newSoundShot = Instantiate(soundShot, cursorLocation.position, Quaternion.identity);
             newSoundShot.Shoot(aimAngle, aimDir);
+            soundTimer = soundCooldown;
         }
 
         if (platform != null)
@@ -83,23 +90,49 @@ public class Player : MonoBehaviour {
         {
             idleSpeed = Vector2.zero;
         }
+
+        ManageState();
     }
 
     void FixedUpdate()
     {
+        transform.Translate((idleSpeed*Time.deltaTime) + new Vector2(moveDirection * speed * Time.deltaTime, 0f));
+    }
 
-        Debug.Log(idleSpeed);
+    void ManageState()
+    {
+        Aim();
+
+        //Ability cooldowns
+        if (lightTimer > 0)
+            lightTimer -= Time.deltaTime;
+        if (soundTimer > 0)
+            soundTimer -= Time.deltaTime;
+
+        //Check if a lightwave we touched died before we exited it
+        if (lightwave == null)
+        {
+            maxJumps = 1;
+        }
+
+        if (maxJumps == 2)
+        {
+            transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().color = new Color(255, 215, 0);
+        }
+        else
+        {
+            transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().color = Color.white;
+        }
 
         //Deceleration
-        if (Mathf.Abs(rigidBody.velocity.x) > deceleration.x * Time.deltaTime){
+        if (Mathf.Abs(rigidBody.velocity.x) > deceleration.x * Time.deltaTime)
+        {
             rigidBody.velocity += new Vector2(Mathf.Pow(-1, Convert.ToInt32(rigidBody.velocity.x > 0)) * deceleration.x * Time.deltaTime, 0f);
         }
         if (rigidBody.velocity.y > deceleration.y * Time.deltaTime)
         {
             rigidBody.velocity += new Vector2(0f, deceleration.y * Time.deltaTime);
         }
-
-        transform.Translate((idleSpeed*Time.deltaTime) + new Vector2(moveDirection * speed * Time.deltaTime, 0f));
     }
 
 
@@ -145,11 +178,6 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
     void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.tag.Contains("Platform"))
@@ -177,9 +205,14 @@ public class Player : MonoBehaviour {
     {
         if (other.CompareTag("Lightwave"))
         {
+            this.lightwave = other;
             maxJumps = 2;
         }
-        else
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Lightwave"))
         {
             maxJumps = 1;
         }
