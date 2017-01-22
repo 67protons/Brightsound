@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     //Movement
+    Vector2 idleSpeed;
     Rigidbody2D rigidBody;
     public Feet feet;
     public float speed = 5f;
@@ -25,10 +26,8 @@ public class Player : MonoBehaviour {
     public SoundShot soundShot;
 
     //Gets Collider for Platforms and sets drop bool
-    //platform is used to switch rotational offset on platformeffector2d for downward movement then reseting it to 0
-    //Drop is to see if we are going through the platform so we can account and fix the double jumping bug
-    GameObject platform;
-    public bool drop;
+    //platform is used to switch rotational offset on platformeffector2d for downward movement then reseting it to 0    
+    GameObject platform;    
 
     void Awake()
     {
@@ -69,15 +68,21 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
+
         if (platform != null)
         {
             if (platform.tag == "SolidPlatform" || platform.tag == "ThroughPlatform")
             {
-                if (platform.GetComponent<PlatformBehavior>().move && rigidBody.velocity.y <= 0.1f && transform.FindChild("Feet").GetComponent<Feet>().isGrounded)
+                if (platform.GetComponent<PlatformBehavior>().move /*&& rigidBody.velocity.y <= 0.01f */&& transform.FindChild("Feet").GetComponent<Feet>().isGrounded)
                 {
-                    rigidBody.velocity = platform.GetComponent<PlatformBehavior>().platformVelocity;
-                }
+                    idleSpeed = platform.GetComponent<PlatformBehavior>().platformVelocity;
+                    //rigidBody.velocity = platform.GetComponent<PlatformBehavior>().platformVelocity;
+                }               
             }
+        }
+        else
+        {
+            idleSpeed = Vector2.zero;
         }
 
         //Deceleration
@@ -89,8 +94,9 @@ public class Player : MonoBehaviour {
             rigidBody.velocity += new Vector2(0f, deceleration.y * Time.deltaTime);
         }
 
-        transform.Translate(new Vector2(moveDirection * speed * Time.deltaTime, 0f));
+        transform.Translate((idleSpeed*Time.deltaTime) + new Vector2(moveDirection * speed * Time.deltaTime, 0f));
     }
+
 
     void Jump()
     {
@@ -135,18 +141,20 @@ public class Player : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ThroughPlatform")
-        {
-            if (transform.position.y < collision.transform.position.y)
-                drop = true;
-        }
+        
     }
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        platform = collision.gameObject;
+        if (collision.collider.tag.Contains("Platform"))
+            platform = collision.gameObject;
     }
 
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag.Contains("Platform"))
+            platform = null;
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Soundwave"))

@@ -11,8 +11,13 @@ public class Feet : MonoBehaviour {
     {              
         if (other.CompareTag("Ground") || other.CompareTag("SolidPlatform") || other.CompareTag("ThroughPlatform"))
         {
-            isGrounded = true;
-            //transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            Rigidbody2D playerRB = transform.parent.GetComponent<Rigidbody2D>();
+            if (playerRB.velocity.y <= 0.01f)
+            {
+                isGrounded = true;
+                //Physics2D.IgnoreCollision(this.transform.parent.GetComponent<Collider2D>(), other, true);
+            }
+                     
         }        
     }
     

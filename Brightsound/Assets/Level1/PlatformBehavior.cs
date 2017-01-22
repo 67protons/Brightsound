@@ -52,6 +52,5 @@ public class PlatformBehavior : MonoBehaviour {
             //direction.Normalize();
             //transform.Translate(direction * speed * Time.deltaTime * Mathf.Sin(bounceClock * bounceFrequency));
         }
-
     }  
 }
