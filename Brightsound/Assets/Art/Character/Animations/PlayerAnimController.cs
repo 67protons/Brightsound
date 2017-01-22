@@ -20,7 +20,9 @@ public class PlayerAnimController : MonoBehaviour {
 
     void Update()
     {
+        //Resets on landing
         animator.ResetTrigger("land");
+        //Sets flipping of sprite
         if (shotCursor.localRotation.w >= 0.7)
         {
             characterSprite.flipX = true;
@@ -54,7 +56,7 @@ public class PlayerAnimController : MonoBehaviour {
         }
 
 
-
+        //Reset if none of the above
         else
         {
             animator.SetBool("walk", false);
