@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 45246d46ec75d8d47b7cc70162790d54
-timeCreated: 1485111406
+timeCreated: 1485112237
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sceneManager: {fileID: 114330576861869658, guid: 0a298bf1232f55c4d97c4d381a539ef6,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

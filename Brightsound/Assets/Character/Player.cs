@@ -182,7 +182,6 @@ public class Player : MonoBehaviour {
         //}
 
         this.jumpCount++;
-        Debug.LogFormat("Now: {0}", jumpCount);
         //StopCoroutine(Accelerate(Vector2.zero, 0f));
         rigidBody.velocity = new Vector2(0,0);
         rigidBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
@@ -253,6 +252,11 @@ public class Player : MonoBehaviour {
             }
             
             rigidBody.AddForce(boostDir * boostedEnterSpeed, ForceMode2D.Impulse);
+        }
+        if (other.CompareTag("SceneLoad"))
+        {
+            string sceneName = other.gameObject.name.Substring(4);
+            MasterGameManager.instance.sceneManager.LoadScene(sceneName, true);
         }
     }
 

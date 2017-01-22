@@ -5,6 +5,8 @@ using UnityEngine;
 public class MasterGameManager : MonoBehaviour {
     public static MasterGameManager instance = null;
 
+    public SceneManagerWrapper sceneManager;
+
     void Awake()
     {
         if (instance == null)

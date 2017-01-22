@@ -17,7 +17,6 @@ public class Feet : MonoBehaviour {
             Rigidbody2D playerRB = transform.parent.GetComponent<Rigidbody2D>();
             if (playerRB.velocity.y <= 0.01f)
             {
-                Debug.Log("grounding player");
                 isGrounded = true;
                 //Physics2D.IgnoreCollision(this.transform.parent.GetComponent<Collider2D>(), other, true);
             }
