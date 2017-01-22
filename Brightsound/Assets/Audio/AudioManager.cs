@@ -50,15 +50,60 @@ public class AudioManager : MonoBehaviour {
             sfxSource.Stop();
     }
 
-    //Sets the music volume where volume is a float in the range (0, 1.0)
+    //Sets the master music volume where volume is a float in the range (0, 1.0)
     public void SetMusicVolume(float volume)
     {
         musicSource.volume = volume;
     }
 
-    //Sets the SFX volume where volume is a float in the range (0, 1.0)
+    //Sets the master SFX volume where volume is a float in the range (0, 1.0)
     public void SetSFXVolume(float volume)
     {
         sfxSource.volume = volume;
     }
-}
+
+    //Selects and plays a random clip from a given selection
+    public void randomSFX(params AudioClip[] clips)
+    {
+        int randomIndex = Random.Range(0, clips.Length);
+        sfxSource.PlayOneShot(clips[randomIndex]);
+    }
+
+    //Note, this fade assumes the audio has already been playing, but at volume 0
+    public IEnumerator fadeIn(AudioSource clip, float fadeRate) {
+        float audioVolume = 0;
+        clip.volume = audioVolume;
+        while (audioVolume <= 1) {
+            audioVolume += fadeRate * Time.deltaTime;
+            clip.volume = audioVolume;
+            yield return null;
+        }
+
+        //Note, uncomment if you want to try and fade clips in and out multiple time
+        //Might be super buggy
+        /*
+        AudioFadeOut previousClip = clip.gameObject.GetComponent<AudioFadeOut>();
+            if (previousClip != null)
+                previousClip.activated = false;
+        */
+    }
+
+    public IEnumerator fadeOut(AudioSource clip, float fadeRate) 
+    {
+        float audioVolume = clip.volume;
+        while(audioVolume >= 0) 
+        {
+            audioVolume -= fadeRate * Time.deltaTime;
+            clip.volume = audioVolume;
+            yield return null;
+        }
+
+         //Note, uncomment if you want to try and fade clips in and out multiple time
+         //Might be super buggy
+         /*
+         AudioFadeIn previousClip = clip.gameObject.GetComponent<AudioFadeIn>();
+         if (previousClip != null)
+             previousClip.activated = false;
+         */
+     }
+ }
