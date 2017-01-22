@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour {
     public int damage = 1;
     public SpriteRenderer sprite;
 
+    public AudioClip[] damagedSounds;
+    public AudioClip[] deathSounds;
+
     public void Damage(int damage)
     {
         this.health -= damage;
@@ -14,6 +17,11 @@ public class Enemy : MonoBehaviour {
         if (this.health <= 0)
         {
             Destroy(this.gameObject);
+            MasterGameManager.instance.audioManager.randomSFX(deathSounds);
+        }
+        else
+        {
+            MasterGameManager.instance.audioManager.randomSFX(damagedSounds);
         }
     }
 
