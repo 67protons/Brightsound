@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 8bc6e39fac431cf40a8f87abe05d4072
-timeCreated: 1485026024
+timeCreated: 1485047077
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - soundCircle: {fileID: 60129060003561394, guid: 1d157b743950b294e99a8d427cd56f83,
+      type: 2}
+  - shotSound: {fileID: 8300000, guid: b2f664a4279aa6842b724c22fae3daa5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

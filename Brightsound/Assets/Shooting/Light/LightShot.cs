@@ -13,8 +13,11 @@ public class LightShot : MonoBehaviour
     public float shotLength = .34f;
     public float lifespan = 1f;
 
+    public AudioClip shotSound;
+
     public void Shoot(float angle)
     {
+        AudioManager.instance.PlaySFXClip(shotSound);
         this.transform.Rotate(0f, 0f, angle);
         StartCoroutine(ShootCoroutine(shotLength));
         Destroy(this.gameObject, lifespan);
