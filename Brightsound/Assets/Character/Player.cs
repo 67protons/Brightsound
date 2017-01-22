@@ -237,7 +237,6 @@ public class Player : MonoBehaviour {
         if (other.CompareTag("Soundwave"))
         {
             boostDir = other.transform.parent.GetComponent<SoundShot>().aimDirection.normalized;
-            Debug.Log(boostDir);
             if (feet.isGrounded)
             {
                 rigidBody.gravityScale = 0f;

@@ -37,22 +37,34 @@ public class SoundShot : MonoBehaviour {
 
         float timeElapsed = 0f;
         int numShot = 1;
-        while (timeElapsed <= shotDuration)
+        while (timeElapsed <= lifespan)
         {
-            if (timeElapsed >= numShot * delayTime)
+            if (timeElapsed <= shotDuration)
             {
-                Collider2D newSoundCircle = Instantiate(soundCircle, this.transform.position, this.transform.rotation);
-                newSoundCircle.transform.SetParent(this.transform);
-                circleList.Add(newSoundCircle);
-                numShot++;
+                if (timeElapsed >= numShot * delayTime)
+                {
+                    Collider2D newSoundCircle = Instantiate(soundCircle, this.transform.position, this.transform.rotation);
+                    newSoundCircle.transform.SetParent(this.transform);
+                    circleList.Add(newSoundCircle);
+                    numShot++;
+                }
+                //Move center shot
+                foreach (Collider2D circle in circleList)
+                {
+                    circle.transform.localPosition += new Vector3(velocity * Time.deltaTime, 0f, 0f);
+                    circle.transform.localScale += new Vector3(0f, 1.25f, 0f);
+                }
             }
-            //Move center shot
-            foreach (Collider2D circle in circleList)
+            
+            if (timeElapsed > .5f && timeElapsed <= lifespan)
             {
-                circle.transform.localPosition += new Vector3(velocity * Time.deltaTime, 0f, 0f);
-                circle.transform.localScale += new Vector3(0f, 1.25f, 0f);
+                foreach (Collider2D circle in circleList)
+                {
+                    SpriteRenderer circleSprite = circle.GetComponent<SpriteRenderer>();
+                    float alphaPercentage = lifespan - (timeElapsed / lifespan);
+                    circleSprite.color = new Color(circleSprite.color.r, circleSprite.color.g, circleSprite.color.b, alphaPercentage);
+                }
             }
-
             
 
             timeElapsed += Time.deltaTime;
