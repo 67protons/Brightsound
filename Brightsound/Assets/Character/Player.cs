@@ -59,36 +59,43 @@ public class Player : MonoBehaviour {
     
     void Update()
     {
-        moveDirection = Input.GetAxis("Horizontal");
 
-        if (jumpCount < maxJumps && Input.GetKeyDown(KeyCode.Space))
+        if (MasterGameManager.instance.inputActive)
         {
-            Jump();
-        }
+            moveDirection = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.S) && feet.isGrounded)
-        {            
-            GoThroughPlatform();            
+            if (jumpCount < maxJumps && Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump();
+            }
+
+            if (Input.GetKeyDown(KeyCode.S) && feet.isGrounded)
+            {
+                GoThroughPlatform();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && lightTimer <= 0)
+            {
+                LightShot newLightShot = Instantiate(lightShot, cursorLocation.position, Quaternion.identity);
+                newLightShot.Shoot(aimAngle);
+                lightTimer = lightCooldown;
+                animLight = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse1) && soundTimer <= 0)
+            {
+                SoundShot newSoundShot = Instantiate(soundShot, cursorLocation.position, Quaternion.identity);
+                newSoundShot.Shoot(aimAngle, aimDir);
+                soundTimer = soundCooldown;
+                animSound = true;
+            }
         }
+        
+
         if (platform != null && platform.tag == "ThroughPlatform" && platform.transform.position.y > transform.position.y)
         {
             platform.GetComponent<PlatformEffector2D>().rotationalOffset = 0;
             platform = null;
-        }
-
-        if(Input.GetKeyDown(KeyCode.Mouse0) && lightTimer <= 0)
-        {
-            LightShot newLightShot = Instantiate(lightShot, cursorLocation.position, Quaternion.identity);
-            newLightShot.Shoot(aimAngle);
-            lightTimer = lightCooldown;
-            animLight = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse1) && soundTimer <= 0)
-        {
-            SoundShot newSoundShot = Instantiate(soundShot, cursorLocation.position, Quaternion.identity);
-            newSoundShot.Shoot(aimAngle, aimDir);
-            soundTimer = soundCooldown;
-            animSound = true;
         }
 
         if (platform != null)
@@ -205,11 +212,19 @@ public class Player : MonoBehaviour {
 
     void Aim()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        aimDir = mousePos - (Vector2)this.transform.position;
-        float radianAngle = Mathf.Atan2(aimDir.y, aimDir.x);
-        aimAngle = radianAngle * Mathf.Rad2Deg;
-        cursorPivot.rotation = Quaternion.Euler(new Vector3(0f, 0f, aimAngle));
+        if (MasterGameManager.instance.inputActive)
+        {
+            cursorLocation.gameObject.SetActive(true);
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            aimDir = mousePos - (Vector2)this.transform.position;
+            float radianAngle = Mathf.Atan2(aimDir.y, aimDir.x);
+            aimAngle = radianAngle * Mathf.Rad2Deg;
+            cursorPivot.rotation = Quaternion.Euler(new Vector3(0f, 0f, aimAngle));
+        }
+        else
+        {
+            cursorLocation.gameObject.SetActive(false);
+        }
     }
 
     void GoThroughPlatform()

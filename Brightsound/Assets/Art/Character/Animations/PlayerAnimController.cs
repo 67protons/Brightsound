@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimController : MonoBehaviour {
+public class PlayerAnimController : MonoBehaviour
+{
 
     public Sprite shoot;
     Sprite idle;
@@ -11,7 +12,7 @@ public class PlayerAnimController : MonoBehaviour {
     Rigidbody2D playerRB;
     Animator animator;
     Player playerScript;
-    bool air = false;    
+    bool air = false;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class PlayerAnimController : MonoBehaviour {
     }
 
     void Update()
-    {        
+    {
         if (playerScript.animLight)
         {
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJump") || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpIdle")) && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
@@ -35,7 +36,7 @@ public class PlayerAnimController : MonoBehaviour {
                 animator.SetTrigger("shoot");
             }
             playerScript.animLight = false;
-        }        
+        }
         if (playerScript.animSound)
         {
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJump") || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpIdle")) && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
@@ -47,42 +48,46 @@ public class PlayerAnimController : MonoBehaviour {
             }
             playerScript.animSound = false;
         }
-        
+
         //Resets on landing
         animator.ResetTrigger("land");
-                
-        //Sets flipping of sprite
-        if (shotCursor.localRotation.w >= 0.7)
+        if (MasterGameManager.instance.inputActive)
         {
-            characterSprite.flipX = true;
-        }
-        else
-        {
-            characterSprite.flipX = false;
-        }
-        
-        //Backward Animation        
-        if((Input.GetAxis("Horizontal") < 0 && shotCursor.localRotation.w >= 0.7) || (Input.GetAxis("Horizontal") > 0 && shotCursor.localRotation.w < 0.7))
-        {
-            animator.SetBool("backward", true);
-            animator.SetBool("run", false);
-            animator.SetBool("walk", false);
+            //Sets flipping of sprite
+            if (shotCursor.localRotation.w >= 0.7)
+            {
+                characterSprite.flipX = true;
+            }
+            else
+            {
+                characterSprite.flipX = false;
+            }
+
+
+            //Backward Animation        
+            if ((Input.GetAxis("Horizontal") < 0 && shotCursor.localRotation.w >= 0.7) || (Input.GetAxis("Horizontal") > 0 && shotCursor.localRotation.w < 0.7))
+            {
+                animator.SetBool("backward", true);
+                animator.SetBool("run", false);
+                animator.SetBool("walk", false);
+            }
+
+            //Running Animation
+            else if ((Input.GetAxis("Horizontal") >= 1 && shotCursor.localRotation.w >= 0.7) || (Input.GetAxis("Horizontal") <= -1) && shotCursor.localRotation.w < 0.7)
+            {
+                animator.SetBool("walk", true);
+                animator.SetBool("run", true);
+                animator.SetBool("backward", false);
+            }
+
+            //Walking Animation
+            else if ((Input.GetAxis("Horizontal") > 0 && shotCursor.localRotation.w >= 0.7) || (Input.GetAxis("Horizontal") < 0) && shotCursor.localRotation.w < 0.7)
+            {
+                animator.SetBool("walk", true);
+                animator.SetBool("backward", false);
+            }
         }
 
-        //Running Animation
-        else if ((Input.GetAxis("Horizontal") >= 1 && shotCursor.localRotation.w >= 0.7) || (Input.GetAxis("Horizontal") <= -1) && shotCursor.localRotation.w < 0.7)
-        {
-            animator.SetBool("walk", true);
-            animator.SetBool("run", true);            
-            animator.SetBool("backward", false);
-        }
-
-        //Walking Animation
-        else if ((Input.GetAxis("Horizontal") > 0 && shotCursor.localRotation.w >= 0.7) || (Input.GetAxis("Horizontal") < 0) && shotCursor.localRotation.w < 0.7)
-        {
-            animator.SetBool("walk", true);
-            animator.SetBool("backward", false);
-        }
 
 
         //Reset if none of the above
@@ -107,7 +112,7 @@ public class PlayerAnimController : MonoBehaviour {
             animator.ResetTrigger("shoot");
             animator.SetTrigger("land");
             air = false;
-        }       
+        }
     }
-    
+
 }

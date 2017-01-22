@@ -7,6 +7,7 @@ public class MasterGameManager : MonoBehaviour {
 
     public SceneManagerWrapper sceneManager;
     public AudioManager audioManager;
+    public bool inputActive = true;
 
     void Awake()
     {
