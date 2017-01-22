@@ -25,21 +25,21 @@ public class PlayerArmController : MonoBehaviour {
             armSprite.flipY = false;
         }
 
-        if (playerScript.animLight)
+        if (playerScript.animArmLight)
         {
             transform.rotation = (Quaternion.identity);
             this.transform.Rotate(0f, 0f, aimAngle);
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerArmShot"))
                 animator.SetTrigger("shoot");
-            //playerScript.animLight = false;
+            playerScript.animArmLight = false;
         }
-        if (playerScript.animSound)
+        if (playerScript.animArmSound)
         {
             transform.rotation = (Quaternion.identity);
             this.transform.Rotate(0f, 0f, aimAngle);
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerArmShot"))
                 animator.SetTrigger("shoot");
-            //playerScript.animSound = false;
+            playerScript.animArmSound = false;
         }
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerArmShot") && shotCursor.localRotation.w < 0.7f)

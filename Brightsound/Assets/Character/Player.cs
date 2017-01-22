@@ -44,6 +44,8 @@ public class Player : MonoBehaviour {
 
     public bool animLight = false;
     public bool animSound = false;
+    public bool animArmLight = false;
+    public bool animArmSound = false;
 
 
     //Gets Collider for Platforms and sets drop bool
@@ -80,6 +82,7 @@ public class Player : MonoBehaviour {
                 newLightShot.Shoot(aimAngle);
                 lightTimer = lightCooldown;
                 animLight = true;
+                animArmLight = true;
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse1) && soundTimer <= 0)
@@ -88,6 +91,7 @@ public class Player : MonoBehaviour {
                 newSoundShot.Shoot(aimAngle, aimDir);
                 soundTimer = soundCooldown;
                 animSound = true;
+                animArmSound = true;
             }
         }
         
