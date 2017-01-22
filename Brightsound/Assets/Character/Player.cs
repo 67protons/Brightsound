@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
     public Vector2 boostDir;
     public float jumpForce = 500f;
     public float jumpDuration = 0.5f;
-    private float moveDirection = 0f;
+    public  float moveDirection = 0f;
     public int maxJumps = 1;
     private int jumpCount = 0;
     Collider2D lightwave = null;
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour {
 
             if (jumpCount < maxJumps && Input.GetKeyDown(KeyCode.Space))
             {
-                Jump();
+                Jump(true);
             }
 
             if (Input.GetKeyDown(KeyCode.S) && feet.isGrounded)
@@ -130,10 +130,10 @@ public class Player : MonoBehaviour {
 
     void ManageState()
     {
-        if (Input.GetAxis("Horizontal") == 0 || !MasterGameManager.instance.inputActive)
-        {
-            moveDirection = 0f;
-        }
+        //if (Input.GetAxis("Horizontal") == 0 || !MasterGameManager.instance.inputActive)
+        //{
+        //    moveDirection = 0f;
+        //}
         if (feet.isGrounded && rigidBody.velocity.y < 0.01f)
         {
             jumpCount = 0;
@@ -193,16 +193,28 @@ public class Player : MonoBehaviour {
     }
 
 
-    void Jump()
+    public void Jump(bool playSound)
     {
-        //if (jumpCount == 0)
-        //{
-        //    AudioManager.instance.PlaySFXClip(playerSounds.jumpSFX);
-        //}
-        //else if (jumpCount == 1)
-        //{
-        //    AudioManager.instance.PlaySFXClip(playerSounds.doubleJumpSFX);
-        //}
+        if (playSound)
+        {
+            if (jumpCount == 0)
+            {
+                MasterGameManager.instance.audioManager.PlaySFXClip(playerSounds.jumpSFX);
+            }
+            else if (jumpCount == 1)
+            {
+                MasterGameManager.instance.audioManager.PlaySFXClip(playerSounds.doubleJumpSFX);
+            }
+            if (jumpCount == 0)
+            {
+                MasterGameManager.instance.audioManager.PlaySFXClip(playerSounds.jumpSFX);
+            }
+            else if (jumpCount == 1)
+            {
+                MasterGameManager.instance.audioManager.PlaySFXClip(playerSounds.doubleJumpSFX);
+            }
+        }
+        
 
         this.jumpCount++;
         //StopCoroutine(Accelerate(Vector2.zero, 0f));
