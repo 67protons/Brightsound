@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     public int health = 1;
+    public int damage = 1;
     public SpriteRenderer sprite;
 
     public void Damage(int damage)
     {
         this.health -= damage;
-        StartCoroutine(blinkRed());
+        StartCoroutine(BlinkRed());
         if (this.health <= 0)
         {
             Destroy(this.gameObject);
         }
     }
 
-    IEnumerator blinkRed()
+    IEnumerator BlinkRed()
     {
         //sprite.color = Color.white;
         float timeElapsed = 0f;

@@ -6,6 +6,11 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     PlayerSounds playerSounds;
+    SpriteRenderer sprite;
+
+    //State
+    bool invulernable = false;
+    public int health = 4;
 
     //Movement
     Vector2 idleSpeed;
@@ -29,10 +34,12 @@ public class Player : MonoBehaviour {
     public float aimAngle;
     public LightShot lightShot;
     public float lightCooldown = 2f;
-    private float lightTimer = 0f;
+    [HideInInspector]
+    public float lightTimer = 0f;
     public SoundShot soundShot;
     public float soundCooldown = 2f;
-    private float soundTimer = 0f;
+    [HideInInspector]
+    public float soundTimer = 0f;
 
     public bool animLight = false;
     public bool animSound = false;
@@ -46,6 +53,7 @@ public class Player : MonoBehaviour {
     {
         this.rigidBody = this.GetComponent<Rigidbody2D>();
         this.playerSounds = this.GetComponent<PlayerSounds>();
+        this.sprite = this.transform.Find("PlayerSprite").GetComponent<SpriteRenderer>();
     }
     
     void Update()
@@ -125,11 +133,13 @@ public class Player : MonoBehaviour {
 
         if (maxJumps == 2)
         {
-            transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().color = new Color(255, 215, 0);
+            //transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().color = new Color(255, 215, 0);
+            sprite.color = new Color(255, 215, 0);
         }
-        else
+        else if (!invulernable)
         {
-            transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().color = Color.white;
+            //transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().color = Color.white;
+            sprite.color = Color.white;
         }
 
         //Deceleration
@@ -140,6 +150,16 @@ public class Player : MonoBehaviour {
         if (rigidBody.velocity.y > deceleration.y * Time.deltaTime)
         {
             rigidBody.velocity += new Vector2(0f, deceleration.y * Time.deltaTime);
+        }
+    }
+
+    public void Damage(int damage)
+    {
+        this.health -= damage;
+        StartCoroutine(BlinkRed());
+        if (this.health <= 0)
+        {
+            Debug.Log("YOU HAVE DIED! I HAVE WRITTEN NO CODE FOR THIS YET. K-keep playing if you want");
         }
     }
 
@@ -194,12 +214,22 @@ public class Player : MonoBehaviour {
         }
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Enemy"))
+        {
+            if (!this.invulernable)
+            {
+                Enemy enemyScript = other.collider.GetComponent<Enemy>();
+                Damage(enemyScript.damage);
+            }
+        }
+    }
+
     void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.tag.Contains("Platform"))
             platform = collision.gameObject;
-
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -238,5 +268,28 @@ public class Player : MonoBehaviour {
     void GravityOn()
     {
         rigidBody.gravityScale = 2f;
+    }
+
+    IEnumerator BlinkRed()
+    {
+        invulernable = true;
+        float timeElapsed = 0f;
+
+        while (timeElapsed <= 1f)
+        {
+            if (timeElapsed < .2f)
+                sprite.color = Color.red;
+            if (timeElapsed >= .2f && timeElapsed < .4f)
+                sprite.color = Color.white;
+            if (timeElapsed >= .4f && timeElapsed < .6f)
+                sprite.color = Color.red;
+            if (timeElapsed >= .6f)
+                sprite.color = Color.white;
+
+            timeElapsed += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        invulernable = false;
     }
 }
