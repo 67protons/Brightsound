@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    PlayerSounds playerSounds;
+
     //Movement
     Vector2 idleSpeed;
     Rigidbody2D rigidBody;
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour {
     void Awake()
     {
         this.rigidBody = this.GetComponent<Rigidbody2D>();
+        this.playerSounds = this.GetComponent<PlayerSounds>();
     }
     
     void Update()
@@ -143,6 +146,14 @@ public class Player : MonoBehaviour {
 
     void Jump()
     {
+        if (jumpCount == 0)
+        {
+            AudioManager.instance.PlaySFXClip(playerSounds.jumpSFX);
+        }
+        else if (jumpCount == 1)
+        {
+            AudioManager.instance.PlaySFXClip(playerSounds.doubleJumpSFX);
+        }
         jumpCount++;
         StopCoroutine(Accelerate(Vector2.zero, 0f));
         rigidBody.velocity = new Vector2(0,0);
@@ -191,18 +202,19 @@ public class Player : MonoBehaviour {
 
     }
 
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        //if (collision.collider.tag.Contains("Platform"))
-        //    platform = null;
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Soundwave"))
         {
-            boostDir = other.transform.parent.GetComponent<SoundShot>().aimDirection.normalized * boostedEnterSpeed;
-            rigidBody.AddForce(boostDir, ForceMode2D.Impulse);
+            boostDir = other.transform.parent.GetComponent<SoundShot>().aimDirection.normalized;
+            Debug.Log(boostDir);
+            if (feet.isGrounded)
+            {
+                rigidBody.gravityScale = 0f;
+                Invoke("GravityOn", 0.5f);
+            }
+            
+            rigidBody.AddForce(boostDir * boostedEnterSpeed, ForceMode2D.Impulse);
         }
     }
 
@@ -221,5 +233,10 @@ public class Player : MonoBehaviour {
         {
             maxJumps = 1;
         }
+    }
+
+    void GravityOn()
+    {
+        rigidBody.gravityScale = 2f;
     }
 }
