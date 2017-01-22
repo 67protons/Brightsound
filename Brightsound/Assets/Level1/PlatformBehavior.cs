@@ -21,6 +21,7 @@ public class PlatformBehavior : MonoBehaviour {
     void Start()
     {        
         home = transform.position;
+        destination = destination + home;
     }
 
     void Update()
