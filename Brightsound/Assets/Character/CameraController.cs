@@ -12,9 +12,7 @@ public class CameraController : MonoBehaviour
     public Vector3 minCameraPos;
     public Vector3 maxCameraPos;
     //Defaults to 0.5f for center
-    public float characterLocX;
-
-    // Update is called once per frame
+    public float characterLocX;    
 
     void FixedUpdate()
     {
