@@ -104,6 +104,7 @@ public class PlayerAnimController : MonoBehaviour {
         if (transform.parent.FindChild("Feet").GetComponent<Feet>().isGrounded)
         {
             animator.ResetTrigger("jump");
+            animator.ResetTrigger("shoot");
             animator.SetTrigger("land");
             air = false;
         }       

@@ -22,17 +22,29 @@ public class TriggerCameraMovement : MonoBehaviour {
     //Target position
     public Vector3 target;
     Vector3 minCamPos;
+
+    //Speeds
+    public float orthoSpeed = 6f;
+    public float distSpeed = 1f;
+
+    public GameObject exitTrigger;
+
+    //entrance or exit?
+    public bool entrance;
+    bool exit; 
     
     void Start()
-    {
+    {        
         mainCamScript = mainCam.GetComponent<CameraController>();
         minValDef = mainCamScript.minCameraPos;
     }
     void Update()
     {
-        if (!enter)
+        //if you entered the entrance
+        if (enter && entrance && !exitTrigger.GetComponent<TriggerCameraMovement>().exit)
         {
-            mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, zoom, Time.deltaTime);
+            mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, zoom, Time.deltaTime * orthoSpeed);
+            //if camera should follow
             if (follow)
             {
                 mainCamScript.minCameraPos = Vector3.Lerp(mainCamScript.minCameraPos, new Vector3(minValDef.x, minValDef.y + (zoom - defaultZoom), minValDef.z), Time.deltaTime);
@@ -40,33 +52,70 @@ public class TriggerCameraMovement : MonoBehaviour {
             }
             else {
                 mainCamScript.target = null;                
-                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, target, Time.deltaTime);
+                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, target, Time.deltaTime * distSpeed);
             }            
         }
-        else if (enter)
+        
+        //else if its the exit and you exited
+        else if (!entrance && exit)
+        {
+            mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, defaultZoom, Time.deltaTime * orthoSpeed);
+            if (follow)
+            {
+                mainCamScript.minCameraPos = Vector3.Lerp(mainCamScript.minCameraPos, new Vector3(minValDef.x, minValDef.y, minValDef.z), Time.deltaTime);
+                //new Vector3(minValDef.x, minValDef.y + (zoom - defaultZoom), minValDef.z);
+            }
+            else {
+                mainCamScript.target = player.transform;
+                if (mainCamScript.target = player.transform)
+                {
+                    mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, defaultZoom, Time.deltaTime * orthoSpeed);
+                }
+            }
+        }
+        //If you leave the entrance
+        else if (!enter && entrance)
         {
             if (follow)
             {
                 mainCamScript.minCameraPos = Vector3.Lerp(mainCamScript.minCameraPos, minValDef, Time.deltaTime);
+                mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, defaultZoom, Time.deltaTime * orthoSpeed);
             }
-            if (mainCamScript.target != player.transform)
+            else
             {
-                mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, defaultZoom, Time.deltaTime*6f);
-                Vector3 playerTemp = new Vector3(player.transform.position.x, player.transform.position.y, mainCam.transform.position.z);
-                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, playerTemp, Time.deltaTime * 12f);
-                if (Mathf.Abs(Vector2.Distance(mainCam.transform.position, playerTemp)) < 1f)
+                mainCamScript.target = player.transform;
+                if (mainCamScript.target = player.transform)
                 {
-                    mainCamScript.target = player.transform;
+                    mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, defaultZoom, Time.deltaTime * orthoSpeed);
                 }
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {            
-            enter = !enter;
+        {
+            if (entrance)
+            {
+                if (other.transform.position.x > transform.position.x)
+                    enter = true;
+                else
+                    enter = false;
+            }
+            else
+            {
+                if (other.transform.position.x > transform.position.x)
+                {
+                   // enter = false;
+                    exit = true;
+                }
+                else {
+                    //enter = true;
+                    exit = false;
+                }
+            }
         }            
     }
 }
