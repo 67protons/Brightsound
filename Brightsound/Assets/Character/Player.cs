@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
         if (feet.isGrounded)
             jumpCount = 0;
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
-        {
+        {           
             Jump();
         }
 
