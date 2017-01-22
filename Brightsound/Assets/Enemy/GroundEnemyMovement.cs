@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundEnemyMovement : MonoBehaviour {
+    Animator animator;
     //Speed and direction of the enemy
     public float speed = 10f;
     Vector2 direction = Vector2.left;
     //Boundaries for enemy ai to move backwards
     public float range = 6;
     float distanceTravelled = 0;
+
+    void Awake()
+    {
+        animator = this.transform.Find("Sprite").GetComponent<Animator>();
+    }
 
     //Moves enemies towards direction
 	void Update () {
@@ -23,10 +29,19 @@ public class GroundEnemyMovement : MonoBehaviour {
         }
 	}
 
+    void Attack()
+    {
+        animator.Play("Cello Attack");
+    }
+
     //Changes directions when colliding with boundaries or anything
     void OnCollisionEnter2D(Collision2D collision)
     {
-        ChangeDirection();
+        //ChangeDirection();
+        if (collision.collider.CompareTag("Player") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Cello Attack"))
+        {
+            Attack();
+        }
     }
 
     //Function that changes direction of enemy movement
