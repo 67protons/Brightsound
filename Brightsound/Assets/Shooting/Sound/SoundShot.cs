@@ -52,7 +52,7 @@ public class SoundShot : MonoBehaviour {
                 foreach (Collider2D circle in circleList)
                 {
                     circle.transform.localPosition += new Vector3(velocity * Time.deltaTime, 0f, 0f);
-                    circle.transform.localScale += new Vector3(0f, 1.25f, 0f);
+                    circle.transform.localScale += new Vector3(0f, 100f * Time.deltaTime, 0f);
                 }
             }
             

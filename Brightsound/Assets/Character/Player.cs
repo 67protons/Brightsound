@@ -60,10 +60,8 @@ public class Player : MonoBehaviour {
     {
         moveDirection = Input.GetAxis("Horizontal");
 
-        if (feet.isGrounded)
-            jumpCount = 0;
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
-        {           
+        if (jumpCount < maxJumps && Input.GetKeyDown(KeyCode.Space))
+        {
             Jump();
         }
 
@@ -106,8 +104,6 @@ public class Player : MonoBehaviour {
         {
             idleSpeed = Vector2.zero;
         }
-
-        ManageState();
     }
 
     void FixedUpdate()
@@ -115,8 +111,18 @@ public class Player : MonoBehaviour {
         transform.Translate((idleSpeed*Time.deltaTime) + new Vector2(moveDirection * speed * Time.deltaTime, 0f));
     }
 
+    void LateUpdate()
+    {
+        ManageState();
+    }
+
     void ManageState()
     {
+        if (feet.isGrounded && rigidBody.velocity.y < 0.01f)
+        {
+            jumpCount = 0;
+        }
+
         Aim();
 
         //Ability cooldowns
@@ -166,18 +172,21 @@ public class Player : MonoBehaviour {
 
     void Jump()
     {
-        if (jumpCount == 0)
-        {
-            AudioManager.instance.PlaySFXClip(playerSounds.jumpSFX);
-        }
-        else if (jumpCount == 1)
-        {
-            AudioManager.instance.PlaySFXClip(playerSounds.doubleJumpSFX);
-        }
-        jumpCount++;
-        StopCoroutine(Accelerate(Vector2.zero, 0f));
+        //if (jumpCount == 0)
+        //{
+        //    AudioManager.instance.PlaySFXClip(playerSounds.jumpSFX);
+        //}
+        //else if (jumpCount == 1)
+        //{
+        //    AudioManager.instance.PlaySFXClip(playerSounds.doubleJumpSFX);
+        //}
+
+        this.jumpCount++;
+        Debug.LogFormat("Now: {0}", jumpCount);
+        //StopCoroutine(Accelerate(Vector2.zero, 0f));
         rigidBody.velocity = new Vector2(0,0);
-        StartCoroutine(Accelerate(new Vector2(0, jumpForce), jumpDuration));
+        rigidBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        //StartCoroutine(Accelerate(new Vector2(0, jumpForce), jumpDuration));
     }
 
     IEnumerator Accelerate(Vector2 direction, float lifetime)
