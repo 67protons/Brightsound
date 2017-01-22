@@ -29,21 +29,23 @@ public class PlayerAnimController : MonoBehaviour {
         {
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJump") || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpIdle")) && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
                 animator.SetTrigger("jumpShot");
-            else if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerBodyShot") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
+            else if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerBodyShot") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot") && !air)
             {
                 animator.ResetTrigger("shoot");
                 animator.SetTrigger("shoot");
             }
+            playerScript.animLight = false;
         }        
         if (playerScript.animSound)
         {
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJump") || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpIdle")) && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
                 animator.SetTrigger("jumpShot");
-            else if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerBodyShot") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
+            else if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerBodyShot") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot") && !air)
             {
                 animator.ResetTrigger("shoot");
                 animator.SetTrigger("shoot");
             }
+            playerScript.animSound = false;
         }
         
         //Resets on landing
@@ -93,7 +95,7 @@ public class PlayerAnimController : MonoBehaviour {
 
 
         //Jumping Animation
-        if (playerRB.velocity.y > 0.1f && !air)
+        if (playerRB.velocity.y > 0.01f && !air)
         {
             animator.SetBool("backward", false);
             animator.SetTrigger("jump");

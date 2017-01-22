@@ -31,7 +31,7 @@ public class PlayerArmController : MonoBehaviour {
             this.transform.Rotate(0f, 0f, aimAngle);
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerArmShot"))
                 animator.SetTrigger("shoot");
-            playerScript.animLight = false;
+            //playerScript.animLight = false;
         }
         if (playerScript.animSound)
         {
@@ -39,7 +39,7 @@ public class PlayerArmController : MonoBehaviour {
             this.transform.Rotate(0f, 0f, aimAngle);
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerArmShot"))
                 animator.SetTrigger("shoot");
-            playerScript.animSound = false;
+            //playerScript.animSound = false;
         }
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerArmShot") && shotCursor.localRotation.w < 0.7f)
