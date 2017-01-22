@@ -4,24 +4,51 @@ using UnityEngine;
 
 public class PlayerAnimController : MonoBehaviour {
 
+    public Sprite shoot;
+    Sprite idle;
     SpriteRenderer characterSprite;
     Transform shotCursor;
     Rigidbody2D playerRB;
     Animator animator;
-    bool air = false;
+    Player playerScript;
+    bool air = false;    
 
     void Start()
     {
         characterSprite = GetComponent<SpriteRenderer>();
         shotCursor = transform.parent.FindChild("ShotCursor").transform;
         playerRB = transform.parent.GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();        
+        animator = GetComponent<Animator>();
+        idle = GetComponent<SpriteRenderer>().sprite;
+        playerScript = transform.parent.GetComponent<Player>();
     }
 
     void Update()
-    {
+    {        
+        if (playerScript.animLight)
+        {
+            if ((animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJump") || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpIdle")) && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
+                animator.SetTrigger("jumpShot");
+            else if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerBodyShot") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
+            {
+                animator.ResetTrigger("shoot");
+                animator.SetTrigger("shoot");
+            }
+        }        
+        if (playerScript.animSound)
+        {
+            if ((animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJump") || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpIdle")) && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
+                animator.SetTrigger("jumpShot");
+            else if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerBodyShot") && !animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpShot"))
+            {
+                animator.ResetTrigger("shoot");
+                animator.SetTrigger("shoot");
+            }
+        }
+        
         //Resets on landing
         animator.ResetTrigger("land");
+                
         //Sets flipping of sprite
         if (shotCursor.localRotation.w >= 0.7)
         {

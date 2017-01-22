@@ -24,13 +24,16 @@ public class Player : MonoBehaviour {
     public Transform cursorPivot;
     public Transform cursorLocation;
     Vector2 aimDir;
-    float aimAngle;
+    public float aimAngle;
     public LightShot lightShot;
     public float lightCooldown = 2f;
     private float lightTimer = 0f;
     public SoundShot soundShot;
     public float soundCooldown = 2f;
     private float soundTimer = 0f;
+
+    public bool animLight = false;
+    public bool animSound = false;
 
 
     //Gets Collider for Platforms and sets drop bool
@@ -68,12 +71,14 @@ public class Player : MonoBehaviour {
             LightShot newLightShot = Instantiate(lightShot, cursorLocation.position, Quaternion.identity);
             newLightShot.Shoot(aimAngle);
             lightTimer = lightCooldown;
+            animLight = true;
         }
         if (Input.GetKeyDown(KeyCode.Mouse1) && soundTimer <= 0)
         {
             SoundShot newSoundShot = Instantiate(soundShot, cursorLocation.position, Quaternion.identity);
             newSoundShot.Shoot(aimAngle, aimDir);
             soundTimer = soundCooldown;
+            animSound = true;
         }
 
         if (platform != null)
