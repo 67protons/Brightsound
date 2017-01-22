@@ -31,31 +31,37 @@ public class PlayerAnimController : MonoBehaviour {
         }
         
         //Backward Animation        
-        if(Input.GetAxis("Horizontal") < 0 && shotCursor.localRotation.w >= 0.7 || Input.GetAxis("Horizontal") > 0 && shotCursor.localRotation.w < 0.7)
+        if((Input.GetAxis("Horizontal") < 0 && shotCursor.localRotation.w >= 0.7) || (Input.GetAxis("Horizontal") > 0 && shotCursor.localRotation.w < 0.7))
         {
             animator.SetBool("backward", true);
+            animator.SetBool("run", false);
+            animator.SetBool("walk", false);
+        }
+
+        //Running Animation
+        else if ((Input.GetAxis("Horizontal") >= 1 && shotCursor.localRotation.w >= 0.7) || (Input.GetAxis("Horizontal") <= -1) && shotCursor.localRotation.w < 0.7)
+        {
+            animator.SetBool("walk", true);
+            animator.SetBool("run", true);            
+            animator.SetBool("backward", false);
         }
 
         //Walking Animation
-        else if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
+        else if ((Input.GetAxis("Horizontal") > 0 && shotCursor.localRotation.w >= 0.7) || (Input.GetAxis("Horizontal") < 0) && shotCursor.localRotation.w < 0.7)
         {
             animator.SetBool("walk", true);
+            animator.SetBool("backward", false);
         }
+
+
+
         else
         {
             animator.SetBool("walk", false);
             animator.SetBool("backward", false);
-        }
-
-        //Running Animation
-        if (Mathf.Abs(Input.GetAxis("Horizontal")) == 1)
-        {
-            animator.SetBool("run", true);          
-        }
-        else
-        {
             animator.SetBool("run", false);
         }
+
 
         //Jumping Animation
         if (playerRB.velocity.y > 0.1f && !air)
