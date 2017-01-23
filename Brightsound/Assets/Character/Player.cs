@@ -253,10 +253,11 @@ public class Player : MonoBehaviour {
         {
             if (platform.tag == "ThroughPlatform")
             {
-                rigidBody.velocity = new Vector2(0, 0);
+                platform.GetComponent<PlatformEffector2D>().rotationalOffset = 180;
+                rigidBody.velocity = new Vector2(0, -.5f);
                 //Not grounded and change the platform effector to allow going down
                 transform.FindChild("Feet").GetComponent<Feet>().isGrounded = false;
-                platform.GetComponent<PlatformEffector2D>().rotationalOffset = 180;
+                
 
                 //This odd code will fix the down key bug and allow players to freely pass through platforms
                 //transform.GetComponent<BoxCollider2D>().enabled = false;

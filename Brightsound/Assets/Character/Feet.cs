@@ -10,7 +10,7 @@ public class Feet : MonoBehaviour {
     [SerializeField]
     private Player parent;
        
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {              
         if (other.CompareTag("Ground") || other.CompareTag("SolidPlatform") || other.CompareTag("ThroughPlatform"))
         {

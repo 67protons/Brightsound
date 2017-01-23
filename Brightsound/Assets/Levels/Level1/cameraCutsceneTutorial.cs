@@ -24,6 +24,7 @@ public class cameraCutsceneTutorial : MonoBehaviour
                 trig.SetActive(false);
             }
             player.transform.FindChild("PlayerSprite").GetComponent<Animator>().Play("PlayerIdle");
+            player.transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().flipX = true;
             //player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             player.GetComponent<Player>().moveDirection = 0f;
             mainCam.GetComponent<CameraController>().target = null;
