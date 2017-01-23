@@ -37,10 +37,10 @@ public class cameraCutsceneTutorial : MonoBehaviour
         if (checkForKick && (mainCam.transform.position.x >= destination.x - 0.1f && mainCam.transform.position.x <= destination.x + 0.1f))
         {
             cutscene = false;
-            StartCoroutine(FadeTitle());
+            StartCoroutine(FadeTitleOut());
 
             player.GetComponent<Player>().moveDirection = 1f;
-            player.GetComponent<Player>().Jump(false);
+            //player.GetComponent<Player>().Jump(false);
 
             checkForKick = false;
         }
@@ -51,14 +51,28 @@ public class cameraCutsceneTutorial : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             cutscene = true;
+            StartCoroutine(FadeTitleIn());
         }
     }
 
-    IEnumerator FadeTitle()
+    IEnumerator FadeTitleIn()
+    {
+        title.color = new Color(1, 1, 1, 0.5f);
+        float timeElapsed = 0f;
+
+        while (title.color.a <= 0.99f)
+        {
+            timeElapsed += Time.deltaTime;
+            title.color = new Color(1, 1, 1, (timeElapsed / 10f));
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    IEnumerator FadeTitleOut()
     {
         float timeElapsed = 0f;
 
-        while (title.color.a > 0.01f)
+        while (title.color.a >= 0.01f)
         {
             timeElapsed += Time.deltaTime;
             title.color = new Color(1, 1, 1, 1 - (timeElapsed / 2f));
