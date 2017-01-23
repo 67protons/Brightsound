@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     public AudioClip outInTheCold;
     public AudioSource cutsceneTrigger;
 
-    void Awake()
+    void Start  ()
     {
         MasterGameManager.instance.inputActive = false;
     }

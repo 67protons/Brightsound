@@ -63,5 +63,7 @@ public class cameraCutsceneTutorial : MonoBehaviour
             title.color = new Color(1, 1, 1, 1 - (timeElapsed / 2f));
             yield return new WaitForEndOfFrame();
         }
+
+        MasterGameManager.instance.inputActive = true;
     }
 }
