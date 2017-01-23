@@ -8,6 +8,12 @@ public class AudioFadeOut : MonoBehaviour {
     public float fadeRate = .05f;
     public AudioSource trackSource;
 
+    private void Start()
+    {
+        //Temporary fix, need to find a way to destroy these later
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public void activateFadeOut() {
         activated = true;
         StartCoroutine(MasterGameManager.instance.audioManager.fadeOut(trackSource, fadeRate));

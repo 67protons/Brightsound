@@ -7,6 +7,12 @@ public class AudioFadeIn : MonoBehaviour {
     public float fadeRate = .05f;
     public AudioSource trackSource;
 
+    private void Start()
+    {
+        //Temporary fix, need to find a way to destroy these later
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public void activateFadeIn() 
     {
         activated = true;
