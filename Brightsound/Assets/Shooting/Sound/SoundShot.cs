@@ -33,8 +33,6 @@ public class SoundShot : MonoBehaviour {
 
     IEnumerator ShootCoroutine(float shotDuration)
     {
-        
-
         float timeElapsed = 0f;
         int numShot = 1;
         while (timeElapsed <= lifespan)

@@ -288,25 +288,16 @@ public class Player : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //if (other.CompareTag("Enemy"))
+        //if (other.CompareTag("Soundwave"))
         //{
-        //    if (!this.invulernable)
+        //    boostDir = other.transform.parent.GetComponent<SoundShot>().aimDirection.normalized;
+        //    if (feet.isGrounded)
         //    {
-        //        Enemy enemyScript = other.GetComponent<Enemy>();
-        //        Damage(enemyScript.damage);
+        //        SwitchOffGravity(0.25f);
         //    }
+        //    Debug.LogFormat("Sound Boost! {0}", other.transform.position);
+        //    rigidBody.AddForce(boostDir * boostedEnterSpeed, ForceMode2D.Impulse);
         //}
-
-        if (other.CompareTag("Soundwave"))
-        {
-            boostDir = other.transform.parent.GetComponent<SoundShot>().aimDirection.normalized;
-            if (feet.isGrounded)
-            {
-                SwitchOffGravity(0.25f);
-            }
-            Debug.LogFormat("Sound Boost! {0}", other.transform.position);
-            rigidBody.AddForce(boostDir * boostedEnterSpeed, ForceMode2D.Impulse);
-        }
         if (other.CompareTag("SceneLoad"))
         {
             string sceneName = other.gameObject.name.Substring(4);
@@ -331,7 +322,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void SwitchOffGravity(float duration)
+    public void SwitchOffGravity(float duration)
     {
         rigidBody.gravityScale = 0f;
         Invoke("GravityOn", duration);
