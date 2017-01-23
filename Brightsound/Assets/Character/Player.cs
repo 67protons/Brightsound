@@ -304,7 +304,7 @@ public class Player : MonoBehaviour {
             {
                 SwitchOffGravity(0.25f);
             }
-            
+            Debug.LogFormat("Sound Boost! {0}", other.transform.position);
             rigidBody.AddForce(boostDir * boostedEnterSpeed, ForceMode2D.Impulse);
         }
         if (other.CompareTag("SceneLoad"))
