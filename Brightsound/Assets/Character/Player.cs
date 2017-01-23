@@ -260,8 +260,8 @@ public class Player : MonoBehaviour {
                 
 
                 //This odd code will fix the down key bug and allow players to freely pass through platforms
-                //transform.GetComponent<BoxCollider2D>().enabled = false;
-                //transform.GetComponent<BoxCollider2D>().enabled = true;
+                transform.GetComponent<BoxCollider2D>().enabled = false;
+                transform.GetComponent<BoxCollider2D>().enabled = true;
             }            
         }
     }
