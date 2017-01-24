@@ -47,7 +47,6 @@ public class Player : MonoBehaviour {
     public bool animArmLight = false;
     public bool animArmSound = false;
 
-
     //Gets Collider for Platforms and sets drop bool
     //platform is used to switch rotational offset on platformeffector2d for downward movement then reseting it to 0    
     GameObject platform;    
@@ -153,15 +152,22 @@ public class Player : MonoBehaviour {
             maxJumps = 1;
         }
 
+        ParticleSystem.EmissionModule em = transform.Find("Feet").GetComponent<ParticleSystem>().emission;
+        ParticleSystem.MainModule mm = transform.Find("Feet").GetComponent<ParticleSystem>().main; 
         if (maxJumps == 2)
         {
             //transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().color = new Color(255, 215, 0);
-            sprite.color = new Color(255, 215, 0);
+            em.enabled = true;
+            if (!transform.Find("Feet").GetComponent<ParticleSystem>().isPlaying)
+                transform.Find("Feet").GetComponent<ParticleSystem>().Play();
         }
         else if (!invulernable)
         {
             //transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().color = Color.white;
             sprite.color = Color.white;
+            em.enabled = false;
+            if (transform.Find("Feet").GetComponent<ParticleSystem>().isPlaying)
+                transform.Find("Feet").GetComponent<ParticleSystem>().Stop();
         }
 
         //Deceleration

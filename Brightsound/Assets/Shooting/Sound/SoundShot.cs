@@ -12,6 +12,13 @@ public class SoundShot : MonoBehaviour {
     public float shotLength = .35f;
     public float delayTime;
     private int numOfCircles = 5;
+    public float minCircleWidth = 1;
+    public float maxCircleWidth = 100;
+    float circleScalePerStep;
+
+    public float wibbleAmplitude = 0.1f;
+    public float wibbleFrequency = 3f;
+
     [HideInInspector]
     public Vector2 aimDirection;
     public AudioClip shotSound;
@@ -19,6 +26,7 @@ public class SoundShot : MonoBehaviour {
     void Awake()
     {
         delayTime = shotLength / numOfCircles;
+        circleScalePerStep = (maxCircleWidth - minCircleWidth) / shotLength;
     }
 
     public void Shoot(float angle, Vector2 direction)
@@ -42,6 +50,7 @@ public class SoundShot : MonoBehaviour {
                 if (timeElapsed >= numShot * delayTime)
                 {
                     Collider2D newSoundCircle = Instantiate(soundCircle, this.transform.position, this.transform.rotation);
+                    //newSoundCircle.transform.localScale = new Vector3(newSoundCircle.transform.localScale.x,0f,0f);
                     newSoundCircle.transform.SetParent(this.transform);
                     circleList.Add(newSoundCircle);
                     numShot++;
@@ -50,10 +59,19 @@ public class SoundShot : MonoBehaviour {
                 foreach (Collider2D circle in circleList)
                 {
                     circle.transform.localPosition += new Vector3(velocity * Time.deltaTime, 0f, 0f);
-                    circle.transform.localScale += new Vector3(0f, 100f * Time.deltaTime, 0f);
+                    //circle.transform.localScale += new Vector3(1f, circleScalePerStep * Time.deltaTime, 0f);
+                    circle.transform.localScale += new Vector3(0f, 50f * Time.deltaTime, 0f);
                 }
             }
-            
+            //Track which circle is which for wibble phase shift
+            int circleNum = 0;
+            foreach (Collider2D circle in circleList)
+            {
+                circle.transform.localPosition += new Vector3(wibbleAmplitude * Mathf.Sin(wibbleFrequency*timeElapsed + circleNum*0.75f), 0f, 0f);
+                circle.transform.localScale += new Vector3(0f, 5 * wibbleAmplitude * Mathf.Sin(wibbleFrequency * timeElapsed + circleNum * 0.75f), 0f);
+                ++circleNum;
+            }
+
             if (timeElapsed > .5f && timeElapsed <= lifespan)
             {
                 foreach (Collider2D circle in circleList)

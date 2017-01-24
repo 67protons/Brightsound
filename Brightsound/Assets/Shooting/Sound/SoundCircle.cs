@@ -9,10 +9,12 @@ public class SoundCircle : MonoBehaviour {
         {
             Player player = other.GetComponent<Player>();
             Vector2 boostDir = this.transform.parent.GetComponent<SoundShot>().aimDirection.normalized;
-            if (player.feet.isGrounded)
-            {
-                player.SwitchOffGravity(0.25f);
-            }
+            //if (player.feet.isGrounded)
+            //{
+            //    Debug.Log("BOOP");
+            //    //player.SwitchOffGravity(0.25f);
+            //}
+
             player.GetComponent<Rigidbody2D>().AddForce(boostDir * player.boostedEnterSpeed, ForceMode2D.Impulse);
         }
     }
