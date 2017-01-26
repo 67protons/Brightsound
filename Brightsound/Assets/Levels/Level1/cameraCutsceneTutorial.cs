@@ -11,7 +11,7 @@ public class cameraCutsceneTutorial : MonoBehaviour
     public SpriteRenderer title;
     float zoom = 12;
     Vector3 destination = new Vector3(103, -2, -10);
-    public GameObject[] triggers;
+    public GameObject playerHUD;
     bool checkForKick = false;
 
     void Update()
@@ -19,10 +19,7 @@ public class cameraCutsceneTutorial : MonoBehaviour
         if (cutscene)
         {
             MasterGameManager.instance.inputActive = false;
-            foreach (GameObject trig in triggers)
-            {
-                trig.SetActive(false);
-            }
+            playerHUD.SetActive(false);
             player.transform.FindChild("PlayerSprite").GetComponent<Animator>().Play("PlayerIdle");
             player.transform.Find("PlayerSprite").GetComponent<SpriteRenderer>().flipX = true;
             //player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
