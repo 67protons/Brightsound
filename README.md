@@ -19,7 +19,7 @@ Left Click - Light Wave
 
 Right Click - Sound Wave 
 
-Light wave activates switches, damages enemies, and allows double jumps. Sound Wave provides a speed boost on entry.
+Light Wave activates switches, damages enemies, and allows double jumps. Sound Wave provides a speed boost on entry.
 
 ## Built With
 Unity 5.5.0f3
