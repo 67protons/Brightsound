@@ -12,9 +12,13 @@ Otherwise you will need to open our game Unity 5.5.0f3 and build it manually fro
 
 ## Controls
 WASD - Movement
+
 Space - Jump
+
 Left Click - Light Wave
+
 Right Click - Sound Wave 
+
 Light wave activates switches, damages enemies, and allows double jumps. Sound Wave provides a speed boost on entry.
 
 ## Built With
