@@ -1,4 +1,4 @@
-# Brightsound
+![](Brightsound/Brightsound/Assets/Art/Backgrounds/title.png)
 
 Brightsound is a 2D puzzle platformer in which the player manipulates light and sound to traverse the environment.
 This game was made over the course of a weekend for the annual Global Game Jam Event. All art, sound, and music is original and was made on site at GGJ.
