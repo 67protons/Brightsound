@@ -21,7 +21,6 @@ public class SoundShot : MonoBehaviour {
 
     [HideInInspector]
     public Vector2 aimDirection;
-    public AudioClip shotSound;
 
     void Awake()
     {
@@ -31,7 +30,7 @@ public class SoundShot : MonoBehaviour {
 
     public void Shoot(float angle, Vector2 direction)
     {
-        MasterGameManager.instance.audioManager.PlaySFXClip(shotSound);
+        AkSoundEngine.PostEvent("SoundShot", this.gameObject);
         this.transform.Rotate(0f, 0f, angle);
         this.aimDirection = direction;
 

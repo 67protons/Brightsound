@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{2304EC87-6B8D-4085-B26D-75AF700ED7BA}" SchemaVersion="75">
+	<InteractiveMusic>
+		<WorkUnit Name="Default Work Unit" ID="{2304EC87-6B8D-4085-B26D-75AF700ED7BA}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSwitchContainer Name="Levels" ID="{7D6A60D3-41CB-4F2E-8770-5EF02BC95CE6}" ShortID="705344725">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicPlaylistContainer Name="GGJ" ID="{D727BF53-05E1-48E0-9531-E5D2E96099A5}" ShortID="806078887">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="OutInTheCold" ID="{18151778-960E-4E94-9648-AC6619A9499B}" ShortID="432574753">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="214338.130482456"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Out In The Cold (Violin Track)" ID="{E3B2E3AA-EEBB-4129-81DD-05ED5D5A0348}" ShortID="132021476">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<RTPCList>
+														<RTPC Name="" ID="{7ED895FE-8850-4C13-B9DB-72B593D8981C}" ShortID="625004037">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="TrackFade" ID="{6302721E-3B1A-433A-A57E-FC22D5081C57}" WorkUnitID="{E8CCE78D-C6F2-4041-B472-05AE36DEFB01}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{83505B9F-01C1-4619-8874-7097BA732B4D}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Out In The Cold (Violin Track)" ID="{1DEC184E-F96A-4749-8709-8580705E691F}" ShortID="49181816">
+													<Language>SFX</Language>
+													<AudioFile>Out In The Cold (Violin Track).wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{6A5EFE0B-6FF2-4E86-8A8A-3232C63690E7}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{F205D74A-E704-4C32-850C-5C8F4ADD882D}">
+													<ClipList>
+														<MusicClip Name="Out In The Cold (Violin Track)" ID="{582D6038-FC06-4F66-A7EA-74EBDF51EB7F}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="189857.959183673"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Out In The Cold (Violin Track)" ID="{1DEC184E-F96A-4749-8709-8580705E691F}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{66EDB068-66F5-4DAB-A2B6-5BB5B33261FC}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>189.85796</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{60009B1C-DD35-46AE-B379-A0A545A18954}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>189.85796</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{ED533B3E-57FD-4436-8D55-4502F16AD171}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>189.85796</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="Out In The Cold" ID="{3A65CC5D-2327-402B-9D98-FE8656E25210}" ShortID="541355544">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Out In The Cold" ID="{FBF41D97-55DD-4566-9777-0ADAA2572A61}" ShortID="1048704580">
+													<Language>SFX</Language>
+													<AudioFile>Out In The Cold.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{BF55504E-A6DD-4381-AA98-9E0DCD0E36AB}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{4B050DCE-656E-430E-9365-6FF390936705}">
+													<ClipList>
+														<MusicClip Name="Out In The Cold" ID="{183CCAB7-7545-45B5-9627-EA058CF07945}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="189727.346938776"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Out In The Cold" ID="{FBF41D97-55DD-4566-9777-0ADAA2572A61}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{1FB78B0C-8A05-4434-AD34-716AED8E0558}"/>
+										<MusicCue Name="Exit Cue" ID="{30644AF5-2A5D-41B0-A977-C4BF00AF7B18}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="189727.346938776"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{2565B5AC-86C5-44D9-9BE6-C054E4B3B6FE}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{27A5D415-7D50-4FE2-BDBA-B59421F3ED67}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{C746F286-3087-4A95-A45B-464C416E364B}" ShortID="403604835">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{32FC3330-2374-42CE-BC26-510031750797}" ShortID="458697982">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="OutInTheCold" ID="{18151778-960E-4E94-9648-AC6619A9499B}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{EAB38D3F-5F95-4D27-8B58-32294C1A0036}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{D7A7E25A-81C9-4BB1-A539-645CB4AD20CC}">
+									<TransitionInfo/>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{906939B7-093E-4B8E-8D5C-47BBD26EF0AA}">
+									<PropertyList>
+										<Property Name="SourceContextType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="SourceContextObject">
+											<ObjectRef Name="OutInTheCold" ID="{18151778-960E-4E94-9648-AC6619A9499B}" WorkUnitID="{2304EC87-6B8D-4085-B26D-75AF700ED7BA}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<ArgumentList>
+						<ArgumentRef Name="Level" ID="{3D5C35D1-01FD-4608-87FB-ABC4F8F6F6F4}"/>
+					</ArgumentList>
+					<EntryList>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Level" ID="{3D5C35D1-01FD-4608-87FB-ABC4F8F6F6F4}"/>
+							</Path>
+							<AudioNodeInfo>
+								<NoObject Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="GGJ" ID="{DDE55A86-16FC-41CC-8E21-6EE76DA09704}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="GGJ" ID="{D727BF53-05E1-48E0-9531-E5D2E96099A5}" WorkUnitID="{2304EC87-6B8D-4085-B26D-75AF700ED7BA}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+					</EntryList>
+				</MusicSwitchContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" SchemaVersion="75">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="LightShot" ID="{73464284-9DDC-42CA-A5B3-D45C9C41F100}">
+					<ChildrenList>
+						<Action Name="Play" ID="{2805768B-C457-4E87-AD54-E4D063267064}" ShortID="279945580" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{4C82C1DA-EA96-40FC-A877-A82B3A61F783}" Global="false">
+									<ObjectRef Name="SFX_Weapons_LightBlast" ID="{C59BA6EF-4BC0-490D-A58C-3C3EAF2170A0}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SoundShot" ID="{48D25E4B-B618-4184-AEAB-AC1A6FE1F134}">
+					<ChildrenList>
+						<Action Name="Play" ID="{EEB34E47-412F-4D0E-8D04-6BD199FC8822}" ShortID="384696814" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{70E2DCA5-A378-4710-9451-1FFB42099442}" Global="false">
+									<ObjectRef Name="SFX_Weapons_SoundBlast" ID="{E7EAA214-47FD-45FB-8F30-337C6125C84A}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Jump" ID="{5B0DAAEE-56A2-4650-A949-01E58857A6F1}">
+					<ChildrenList>
+						<Action Name="Play" ID="{D65D8615-8F13-4211-87C8-AA2B9113E025}" ShortID="819900100" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{9A936056-1189-4700-8F36-462D2A38CA5E}" Global="false">
+									<ObjectRef Name="SFX_Movement_Jump" ID="{316D0AF4-0E1D-4D2E-B999-E4B5DA001EB1}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DoubleJump" ID="{54890BD3-C300-4B11-8277-4E0AAB90C71F}">
+					<ChildrenList>
+						<Action Name="Play" ID="{132FCEE4-5EB4-4AF8-8389-9C95000FF36F}" ShortID="707903370" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{5834B804-1BDB-46C7-9289-28C3D9B8513C}" Global="false">
+									<ObjectRef Name="SFX_Movement_DoubleJump" ID="{E9637044-627D-49B8-BDF8-9963A3609FDB}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerDeath" ID="{BDC02763-DAB1-49BB-9D9A-DAAB71C3A511}">
+					<ChildrenList>
+						<Action Name="Play" ID="{F5293034-1D69-4E65-A246-2957FB69BF0C}" ShortID="223908790" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{1A3465C0-A354-4BB0-956A-F29931DDC7FB}" Global="false">
+									<ObjectRef Name="SFX_Combat_Death" ID="{D38A953D-78D1-4A72-8E78-D925326D229B}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerDamaged" ID="{F6C070FE-5248-4DF9-9170-35FC425F338D}">
+					<ChildrenList>
+						<Action Name="Play" ID="{C0048E60-0CC3-4C26-88C3-6BB88D121015}" ShortID="661753033" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{165C167E-25F0-48D8-B7E4-A7209AC8EF31}" Global="false">
+									<ObjectRef Name="PlayerDamaged" ID="{C0D2B165-7349-43F4-9555-F51390052A49}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="RobotDeath" ID="{FC567F76-DA07-45C7-B79A-04ED7DA7DA32}">
+					<ChildrenList>
+						<Action Name="Play" ID="{6AA7D87E-171C-4ECD-AA15-91CD75EE0877}" ShortID="1054265717" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D6D2D24E-A59F-4170-B909-F1BCA3A598E2}" Global="false">
+									<ObjectRef Name="SFX_Enemies_RobotDeath" ID="{381AC323-A8E3-4897-9F6C-AFD20C24FED9}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CelloDeath" ID="{835A53B0-2DCA-409C-A92C-E9B9F01E754E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{77670262-7A06-4A15-B276-140D52F77EBE}" ShortID="1031357149" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{A7F47E7A-0C39-4906-9A8C-0A17E2B1DFB0}" Global="false">
+									<ObjectRef Name="SFX_Enemies_CelloDeath" ID="{F53B6330-8389-4BFA-84C2-389FD1C06B39}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CelloDamaged" ID="{A06E9E4B-CB53-4532-BA57-08C0457512BC}">
+					<ChildrenList>
+						<Action Name="Play" ID="{9DD43F03-9516-4E05-B5B2-2F482E1D9445}" ShortID="685119718" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{4981E12F-72E6-4B8D-8712-B57D90768C41}" Global="false">
+									<ObjectRef Name="SFX_Enemies_CelloDamaged" ID="{C9E0AAD0-5900-4A22-95E1-7758DE2BDF07}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="RobotDamaged" ID="{BE5990A2-56F0-45FE-BBA7-1A458D6FBC65}">
+					<ChildrenList>
+						<Action Name="Play" ID="{E82047CD-0375-47EC-AD4F-A846A45955A9}" ShortID="404927692" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{76D80826-C783-44FA-A9E1-B4673919A0F1}" Global="false">
+									<ObjectRef Name="RobotDamaged" ID="{0F3731FA-8ED3-47AA-9640-0C0566C9E463}" WorkUnitID="{A37E120B-5C03-4F31-9669-3B359CDE2266}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

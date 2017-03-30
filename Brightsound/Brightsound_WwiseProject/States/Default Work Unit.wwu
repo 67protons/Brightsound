@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{A25E0087-3877-431D-836A-7A763C8968F6}" SchemaVersion="75">
+	<States>
+		<WorkUnit Name="Default Work Unit" ID="{A25E0087-3877-431D-836A-7A763C8968F6}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Level" ID="{3D5C35D1-01FD-4608-87FB-ABC4F8F6F6F4}">
+					<ChildrenList>
+						<State Name="None" ID="{B459C99B-CA8A-4874-B977-A3741613AF96}"/>
+						<State Name="GGJ" ID="{DDE55A86-16FC-41CC-8E21-6EE76DA09704}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>

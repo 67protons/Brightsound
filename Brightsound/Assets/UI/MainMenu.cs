@@ -20,6 +20,8 @@ public class MainMenu : MonoBehaviour
     {
         //MasterGameManager.instance.sceneManager.LoadScene("Level1", false);
         StartCoroutine(StartGame());
+        //Placeholder
+        AkSoundEngine.SetState("Level", "GGJ");
         MasterGameManager.instance.audioManager.PlayMusic(outInTheCold);
         cutsceneTrigger.Play();
     }

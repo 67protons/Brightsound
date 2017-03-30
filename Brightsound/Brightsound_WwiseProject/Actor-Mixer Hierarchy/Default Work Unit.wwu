@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{A37E120B-5C03-4F31-9669-3B359CDE2266}" SchemaVersion="75">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{A37E120B-5C03-4F31-9669-3B359CDE2266}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="SFX_Weapons_LightBlast" ID="{C59BA6EF-4BC0-490D-A58C-3C3EAF2170A0}" ShortID="265460239" Type="SoundFX">
+					<Comment>Sound for player light shot. Use with "LightShot" event.</Comment>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Weapons_LightBlast" ID="{40254243-CF62-41B4-8C4A-7C8DDD4049DC}" ShortID="536627715">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Weapons_LightBlast.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Weapons_LightBlast" ID="{40254243-CF62-41B4-8C4A-7C8DDD4049DC}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="SFX_Weapons_SoundBlast" ID="{E7EAA214-47FD-45FB-8F30-337C6125C84A}" ShortID="937014138" Type="SoundFX">
+					<Comment>Sound for player sound shot. Use with "SoundShot" event.</Comment>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Weapons_SoundBlast" ID="{14C56A61-2A37-4A8A-9B6A-5A1ECF338511}" ShortID="384447458">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Weapons_SoundBlast.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Weapons_SoundBlast" ID="{14C56A61-2A37-4A8A-9B6A-5A1ECF338511}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="SFX_Movement_DoubleJump" ID="{E9637044-627D-49B8-BDF8-9963A3609FDB}" ShortID="412108642" Type="SoundFX">
+					<Comment>Sound for player double jump. Use with "DoubleJump" event.</Comment>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Movement_DoubleJump" ID="{90D27C28-A7AB-4A33-8AB0-A5C4AE27E3DB}" ShortID="258243680">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Movement_DoubleJump.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Movement_DoubleJump" ID="{90D27C28-A7AB-4A33-8AB0-A5C4AE27E3DB}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="SFX_Movement_Jump" ID="{316D0AF4-0E1D-4D2E-B999-E4B5DA001EB1}" ShortID="185618792" Type="SoundFX">
+					<Comment>Sound for player jump, use with "Jump" event.
+</Comment>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Movement_Jump" ID="{1A703AAD-C975-4153-883C-DA389CADF8D3}" ShortID="84927046">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Movement_Jump.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Movement_Jump" ID="{1A703AAD-C975-4153-883C-DA389CADF8D3}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<RandomSequenceContainer Name="PlayerDamaged" ID="{C0D2B165-7349-43F4-9555-F51390052A49}" ShortID="211027952">
+					<Comment>Sounds for damage to the player. Use with the "PlayerDamaged" event.</Comment>
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{66DB0870-1F48-4B64-BE2F-0E2550E9A055}">
+										<PropertyList>
+											<Property Name="Max" Type="Real64" Value="100"/>
+											<Property Name="Min" Type="Real64" Value="-100"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="SFX_Combat_DamageTaken1" ID="{61B23AAE-768D-4223-B8CC-A2BFD0932176}" ShortID="690664941" Type="SoundFX">
+							<Comment>Sound for player damage. Use in "PlayerDamaged" random container.</Comment>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Combat_DamageTaken1" ID="{4B781FE0-9054-42FE-9F60-413891519914}" ShortID="1066904886">
+									<Language>SFX</Language>
+									<AudioFile>SFX_Combat_DamageTaken1.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Combat_DamageTaken1" ID="{4B781FE0-9054-42FE-9F60-413891519914}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Combat_DamageTaken2" ID="{46FE1DF2-05A6-4A3E-BE59-7420A648452A}" ShortID="878918392" Type="SoundFX">
+							<Comment>Sound for player damage. Use in "PlayerDamaged" random container.</Comment>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Combat_DamageTaken2" ID="{E7F0AC9A-9019-4413-97CB-4800FF4ED0D5}" ShortID="944922227">
+									<Language>SFX</Language>
+									<AudioFile>SFX_Combat_DamageTaken2.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Combat_DamageTaken2" ID="{E7F0AC9A-9019-4413-97CB-4800FF4ED0D5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="SFX_Combat_Death" ID="{D38A953D-78D1-4A72-8E78-D925326D229B}" ShortID="647194796" Type="SoundFX">
+					<Comment>Sound for player death. Use with "PlayerDeath" event.</Comment>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Combat_Death" ID="{367C9526-910E-4512-AF59-134411960BCB}" ShortID="344196386">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Combat_Death.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Combat_Death" ID="{367C9526-910E-4512-AF59-134411960BCB}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="SFX_Enemies_CelloDamaged" ID="{C9E0AAD0-5900-4A22-95E1-7758DE2BDF07}" ShortID="720126444" Type="SoundFX">
+					<Comment>Sound for damage to the cello enemy. Use with the "CelloDamaged" event.</Comment>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Enemies_CelloDamaged" ID="{95CEA41F-6579-4DC8-B452-C69F6D964BC8}" ShortID="887777620">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Enemies_CelloDamaged.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Enemies_CelloDamaged" ID="{95CEA41F-6579-4DC8-B452-C69F6D964BC8}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="SFX_Enemies_CelloDeath" ID="{F53B6330-8389-4BFA-84C2-389FD1C06B39}" ShortID="890492026" Type="SoundFX">
+					<Comment>Sound for death of the cello enemy. Use with the "CelloDeath" event.</Comment>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Enemies_CelloDeath" ID="{737F81A6-FFBD-410D-81E4-F2D00B5A75B4}" ShortID="357654842">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Enemies_CelloDeath.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Enemies_CelloDeath" ID="{737F81A6-FFBD-410D-81E4-F2D00B5A75B4}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="SFX_Enemies_RobotDeath" ID="{381AC323-A8E3-4897-9F6C-AFD20C24FED9}" ShortID="540971923" Type="SoundFX">
+					<Comment>Sound for the death of the robot enemy. Use with the "RobotDeath" event.</Comment>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Enemies_RobotDeath" ID="{0A5C04AD-885F-472E-8CE0-A647CC36D69C}" ShortID="82241873">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Enemies_RobotDeath.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Enemies_RobotDeath" ID="{0A5C04AD-885F-472E-8CE0-A647CC36D69C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<RandomSequenceContainer Name="RobotDamaged" ID="{0F3731FA-8ED3-47AA-9640-0C0566C9E463}" ShortID="279959153">
+					<Comment>Sounds for damage to the robot enemy. Use with the "RobotDamaged" event.</Comment>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="SFX_Enemies_RobotDamaged2" ID="{2D8430DF-36FC-4855-AEDA-9667E9F230B8}" ShortID="907326342" Type="SoundFX">
+							<Comment>Sound for robot enemy damage. Use in "RobotDamaged" random container.</Comment>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Enemies_RobotDamaged2" ID="{5C3855DA-3CDD-460D-A64B-214708FF7A49}" ShortID="20269084">
+									<Language>SFX</Language>
+									<AudioFile>SFX_Enemies_RobotDamaged2.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Enemies_RobotDamaged2" ID="{5C3855DA-3CDD-460D-A64B-214708FF7A49}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Enemies_RobotDamaged3" ID="{6DC221F4-F231-4543-9012-E745AE31DC7E}" ShortID="351591379" Type="SoundFX">
+							<Comment>Sound for robot enemy damage. Use in "RobotDamaged" random container.</Comment>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Enemies_RobotDamaged3" ID="{1A6E210A-5318-42C1-8DA7-506C3A7BCF75}" ShortID="1011289523">
+									<Language>SFX</Language>
+									<AudioFile>SFX_Enemies_RobotDamaged3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Enemies_RobotDamaged3" ID="{1A6E210A-5318-42C1-8DA7-506C3A7BCF75}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Enemies_RobotDamaged1" ID="{538B0044-E81F-45B7-9887-6D3AADF30ECD}" ShortID="538588611" Type="SoundFX">
+							<Comment>Sound for robot enemy damage. Use in "RobotDamaged" random container.</Comment>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{610B2209-2EF9-448C-A07A-2ED2E4261C42}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D802B9E-A6BA-49CD-A9F2-FE0C3EA8C3F9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Enemies_RobotDamaged1" ID="{3A3BDF79-476A-4F59-9444-CC56651CC8B1}" ShortID="832603975">
+									<Language>SFX</Language>
+									<AudioFile>SFX_Enemies_RobotDamaged1.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Enemies_RobotDamaged1" ID="{3A3BDF79-476A-4F59-9444-CC56651CC8B1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
