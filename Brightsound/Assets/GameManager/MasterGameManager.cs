@@ -15,7 +15,6 @@ public class MasterGameManager : MonoBehaviour {
             instance = this;
         else if (instance != this)
             Destroy(this.gameObject);
-
         DontDestroyOnLoad(this.gameObject);
     }
 }

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="75">
-	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1131084866" DateHigh="30583048"/>
+	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1406442238" DateHigh="30583071"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="402509022" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="402534019" DateHigh="30583024"/>
-	<ValidationCacheItem File="C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Brightsound_WwiseProject.Efren.wsettings" DateLow="185961544" DateHigh="30583064"/>
-	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Brightsound_WwiseProject.wproj" DateLow="465912005" DateHigh="30583063"/>
+	<ValidationCacheItem File="C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Brightsound_WwiseProject.Efren.wsettings" DateLow="1657682340" DateHigh="30583071"/>
+	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Brightsound_WwiseProject.wproj" DateLow="479547900" DateHigh="30583064"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="539104317" DateHigh="30583041"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="402729034" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="402754036" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="402779023" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Effects\Default Work Unit.wwu" DateLow="402809035" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Effects\Factory Effects.wwu" DateLow="402854034" DateHigh="30583024"/>
-	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Events\Default Work Unit.wwu" DateLow="655261068" DateHigh="30583063"/>
+	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Events\Default Work Unit.wwu" DateLow="1406622488" DateHigh="30583071"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="402894322" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="402914304" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="402934043" DateHigh="30583024"/>
@@ -20,7 +20,7 @@
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Presets\Default Work Unit.wwu" DateLow="403009303" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Queries\Default Work Unit.wwu" DateLow="403034031" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Queries\Factory Queries.wwu" DateLow="403064036" DateHigh="30583024"/>
-	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="3872215862" DateHigh="30583047"/>
+	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1406157229" DateHigh="30583071"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="403119022" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\States\Default Work Unit.wwu" DateLow="403144295" DateHigh="30583024"/>
 	<ValidationCacheItem File="C:\Users\efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\Switches\Default Work Unit.wwu" DateLow="403169016" DateHigh="30583024"/>

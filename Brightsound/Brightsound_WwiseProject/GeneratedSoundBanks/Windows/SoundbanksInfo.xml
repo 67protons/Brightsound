@@ -32,6 +32,10 @@
 					<ShortName>SFX_Enemies_RobotDamaged2.wav</ShortName>
 					<Path>SFX\SFX_Enemies_RobotDamaged2_9E69E797.wem</Path>
 				</File>
+				<File Id="49181816" Language="SFX">
+					<ShortName>Out In The Cold (Violin Track).wav</ShortName>
+					<Path>SFX\Out In The Cold (Violin Track)_4B8CC0C5.wem</Path>
+				</File>
 				<File Id="82241873" Language="SFX">
 					<ShortName>SFX_Enemies_RobotDeath.wav</ShortName>
 					<Path>SFX\SFX_Enemies_RobotDeath_9E69E797.wem</Path>
@@ -75,6 +79,10 @@
 				<File Id="1011289523" Language="SFX">
 					<ShortName>SFX_Enemies_RobotDamaged3.wav</ShortName>
 					<Path>SFX\SFX_Enemies_RobotDamaged3_9E69E797.wem</Path>
+				</File>
+				<File Id="1048704580" Language="SFX">
+					<ShortName>Out In The Cold.wav</ShortName>
+					<Path>SFX\Out In The Cold_4B8CC0C5.wem</Path>
 				</File>
 				<File Id="1066904886" Language="SFX">
 					<ShortName>SFX_Combat_DamageTaken1.wav</ShortName>

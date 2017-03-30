@@ -10,8 +10,12 @@ Event	ID	Name			Wwise Object Path	Notes
 	3833651337	Jump			\Default Work Unit\Jump	
 	4055688079	PlayerDamaged			\Default Work Unit\PlayerDamaged	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2721351080	TrackFade			\Default Work Unit\TrackFade	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	20269084	SFX_Enemies_RobotDamaged2	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_RobotDamaged2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\RobotDamaged\SFX_Enemies_RobotDamaged2	Sound for robot enemy damage. Use in "RobotDamaged" random container.	184384
+	49181816	Out In The Cold (Violin Track)	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\Out In The Cold (Violin Track)_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\Levels\GGJ\OutInTheCold\Out In The Cold (Violin Track)		8372800
 	82241873	SFX_Enemies_RobotDeath	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_RobotDeath_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Enemies_RobotDeath	Sound for the death of the robot enemy. Use with the "RobotDeath" event.	184384
 	84927046	SFX_Movement_Jump	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Movement_Jump_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Movement_Jump	Sound for player jump, use with "Jump" event. 	271936
 	258243680	SFX_Movement_DoubleJump	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Movement_DoubleJump_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Movement_DoubleJump	Sound for player double jump. Use with "DoubleJump" event.	271936
@@ -23,5 +27,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	887777620	SFX_Enemies_CelloDamaged	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_CelloDamaged_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Enemies_CelloDamaged	Sound for damage to the cello enemy. Use with the "CelloDamaged" event.	184384
 	944922227	SFX_Combat_DamageTaken2	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Combat_DamageTaken2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerDamaged\SFX_Combat_DamageTaken2	Sound for player damage. Use in "PlayerDamaged" random container.	359488
 	1011289523	SFX_Enemies_RobotDamaged3	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_RobotDamaged3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\RobotDamaged\SFX_Enemies_RobotDamaged3	Sound for robot enemy damage. Use in "RobotDamaged" random container.	184384
+	1048704580	Out In The Cold	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\Out In The Cold_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\Levels\GGJ\OutInTheCold\Out In The Cold		33467968
 	1066904886	SFX_Combat_DamageTaken1	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Combat_DamageTaken1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerDamaged\SFX_Combat_DamageTaken1	Sound for player damage. Use in "PlayerDamaged" random container.	359488
 

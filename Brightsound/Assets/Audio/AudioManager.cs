@@ -75,6 +75,8 @@ public class AudioManager : MonoBehaviour {
         clip.volume = audioVolume;
         while (audioVolume <= 1) {
             audioVolume += fadeRate * Time.deltaTime;
+            //Cheap fix until I learn how to use WWise dynamic music
+            AkSoundEngine.SetRTPCValue("TrackFade", audioVolume);
             clip.volume = audioVolume;
             yield return null;
         }

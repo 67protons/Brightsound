@@ -15,6 +15,7 @@
 						<ObjectRef Name="PlayerDeath" ID="{BDC02763-DAB1-49BB-9D9A-DAAB71C3A511}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="DoubleJump" ID="{54890BD3-C300-4B11-8277-4E0AAB90C71F}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="PlayerDamaged" ID="{F6C070FE-5248-4DF9-9170-35FC425F338D}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Levels" ID="{7D6A60D3-41CB-4F2E-8770-5EF02BC95CE6}" WorkUnitID="{2304EC87-6B8D-4085-B26D-75AF700ED7BA}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

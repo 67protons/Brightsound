@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E8CCE78D-C6F2-4041-B472-05AE36DEFB01}" SchemaVersion="75">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{E8CCE78D-C6F2-4041-B472-05AE36DEFB01}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E8CCE78D-C6F2-4041-B472-05AE36DEFB01}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="TrackFade" ID="{6302721E-3B1A-433A-A57E-FC22D5081C57}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

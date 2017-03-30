@@ -25,6 +25,25 @@ namespace AK
         static const AkUniqueID SOUNDSHOT = 2081346346U;
     } // namespace EVENTS
 
+    namespace STATES
+    {
+        namespace LEVEL
+        {
+            static const AkUniqueID GROUP = 2782712965U;
+
+            namespace STATE
+            {
+                static const AkUniqueID GGJ = 680327799U;
+            } // namespace STATE
+        } // namespace LEVEL
+
+    } // namespace STATES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID TRACKFADE = 2721351080U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
