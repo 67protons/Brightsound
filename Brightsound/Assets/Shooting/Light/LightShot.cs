@@ -18,8 +18,6 @@ public class LightShot : MonoBehaviour
     public float shotLength = .34f;
     public float lifespan = 1f;
 
-    public AudioClip shotSound;
-
     private float distanceCovered = 0f;
 
     void Awake()
@@ -29,7 +27,7 @@ public class LightShot : MonoBehaviour
 
     public void Shoot(float angle)
     {
-        MasterGameManager.instance.audioManager.PlaySFXClip(shotSound);
+        AkSoundEngine.PostEvent("LightShot", this.gameObject);
         this.transform.Rotate(0f, 0f, angle);
         StartCoroutine(ShootCoroutine(shotLength));
         Destroy(this.gameObject, lifespan);

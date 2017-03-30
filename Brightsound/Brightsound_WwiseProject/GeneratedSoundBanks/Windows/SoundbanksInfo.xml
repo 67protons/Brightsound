@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
+	<RootPaths>
+		<ProjectRoot>C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1327972334" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\PlayerSounds</ObjectPath>
+			<ShortName>PlayerSounds</ShortName>
+			<Path>PlayerSounds.bnk</Path>
+			<IncludedEvents>
+				<Event Id="885966609" Name="CelloDamaged" ObjectPath="\Events\Default Work Unit\CelloDamaged"/>
+				<Event Id="2269267714" Name="CelloDeath" ObjectPath="\Events\Default Work Unit\CelloDeath"/>
+				<Event Id="1308315758" Name="DoubleJump" ObjectPath="\Events\Default Work Unit\DoubleJump"/>
+				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Jump"/>
+				<Event Id="535089763" Name="LightShot" ObjectPath="\Events\Default Work Unit\LightShot"/>
+				<Event Id="4055688079" Name="PlayerDamaged" ObjectPath="\Events\Default Work Unit\PlayerDamaged"/>
+				<Event Id="1656947812" Name="PlayerDeath" ObjectPath="\Events\Default Work Unit\PlayerDeath"/>
+				<Event Id="3229146868" Name="RobotDamaged" ObjectPath="\Events\Default Work Unit\RobotDamaged"/>
+				<Event Id="3134521231" Name="RobotDeath" ObjectPath="\Events\Default Work Unit\RobotDeath"/>
+				<Event Id="2081346346" Name="SoundShot" ObjectPath="\Events\Default Work Unit\SoundShot"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="20269084" Language="SFX">
+					<ShortName>SFX_Enemies_RobotDamaged2.wav</ShortName>
+					<Path>SFX\SFX_Enemies_RobotDamaged2_9E69E797.wem</Path>
+				</File>
+				<File Id="82241873" Language="SFX">
+					<ShortName>SFX_Enemies_RobotDeath.wav</ShortName>
+					<Path>SFX\SFX_Enemies_RobotDeath_9E69E797.wem</Path>
+				</File>
+				<File Id="84927046" Language="SFX">
+					<ShortName>SFX_Movement_Jump.wav</ShortName>
+					<Path>SFX\SFX_Movement_Jump_9E69E797.wem</Path>
+				</File>
+				<File Id="258243680" Language="SFX">
+					<ShortName>SFX_Movement_DoubleJump.wav</ShortName>
+					<Path>SFX\SFX_Movement_DoubleJump_9E69E797.wem</Path>
+				</File>
+				<File Id="344196386" Language="SFX">
+					<ShortName>SFX_Combat_Death.wav</ShortName>
+					<Path>SFX\SFX_Combat_Death_9E69E797.wem</Path>
+				</File>
+				<File Id="357654842" Language="SFX">
+					<ShortName>SFX_Enemies_CelloDeath.wav</ShortName>
+					<Path>SFX\SFX_Enemies_CelloDeath_9E69E797.wem</Path>
+				</File>
+				<File Id="384447458" Language="SFX">
+					<ShortName>SFX_Weapons_SoundBlast.wav</ShortName>
+					<Path>SFX\SFX_Weapons_SoundBlast_9E69E797.wem</Path>
+				</File>
+				<File Id="536627715" Language="SFX">
+					<ShortName>SFX_Weapons_LightBlast.wav</ShortName>
+					<Path>SFX\SFX_Weapons_LightBlast_9E69E797.wem</Path>
+				</File>
+				<File Id="832603975" Language="SFX">
+					<ShortName>SFX_Enemies_RobotDamaged1.wav</ShortName>
+					<Path>SFX\SFX_Enemies_RobotDamaged1_9E69E797.wem</Path>
+				</File>
+				<File Id="887777620" Language="SFX">
+					<ShortName>SFX_Enemies_CelloDamaged.wav</ShortName>
+					<Path>SFX\SFX_Enemies_CelloDamaged_9E69E797.wem</Path>
+				</File>
+				<File Id="944922227" Language="SFX">
+					<ShortName>SFX_Combat_DamageTaken2.wav</ShortName>
+					<Path>SFX\SFX_Combat_DamageTaken2_9E69E797.wem</Path>
+				</File>
+				<File Id="1011289523" Language="SFX">
+					<ShortName>SFX_Enemies_RobotDamaged3.wav</ShortName>
+					<Path>SFX\SFX_Enemies_RobotDamaged3_9E69E797.wem</Path>
+				</File>
+				<File Id="1066904886" Language="SFX">
+					<ShortName>SFX_Combat_DamageTaken1.wav</ShortName>
+					<Path>SFX\SFX_Combat_DamageTaken1_9E69E797.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

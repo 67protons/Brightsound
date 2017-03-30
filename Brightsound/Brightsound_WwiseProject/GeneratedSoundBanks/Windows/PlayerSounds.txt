@@ -1,0 +1,27 @@
+Event	ID	Name			Wwise Object Path	Notes
+	535089763	LightShot			\Default Work Unit\LightShot	
+	885966609	CelloDamaged			\Default Work Unit\CelloDamaged	
+	1308315758	DoubleJump			\Default Work Unit\DoubleJump	
+	1656947812	PlayerDeath			\Default Work Unit\PlayerDeath	
+	2081346346	SoundShot			\Default Work Unit\SoundShot	
+	2269267714	CelloDeath			\Default Work Unit\CelloDeath	
+	3134521231	RobotDeath			\Default Work Unit\RobotDeath	
+	3229146868	RobotDamaged			\Default Work Unit\RobotDamaged	
+	3833651337	Jump			\Default Work Unit\Jump	
+	4055688079	PlayerDamaged			\Default Work Unit\PlayerDamaged	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	20269084	SFX_Enemies_RobotDamaged2	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_RobotDamaged2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\RobotDamaged\SFX_Enemies_RobotDamaged2	Sound for robot enemy damage. Use in "RobotDamaged" random container.	184384
+	82241873	SFX_Enemies_RobotDeath	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_RobotDeath_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Enemies_RobotDeath	Sound for the death of the robot enemy. Use with the "RobotDeath" event.	184384
+	84927046	SFX_Movement_Jump	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Movement_Jump_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Movement_Jump	Sound for player jump, use with "Jump" event. 	271936
+	258243680	SFX_Movement_DoubleJump	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Movement_DoubleJump_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Movement_DoubleJump	Sound for player double jump. Use with "DoubleJump" event.	271936
+	344196386	SFX_Combat_Death	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Combat_Death_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Combat_Death	Sound for player death. Use with "PlayerDeath" event.	359488
+	357654842	SFX_Enemies_CelloDeath	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_CelloDeath_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Enemies_CelloDeath	Sound for death of the cello enemy. Use with the "CelloDeath" event.	184384
+	384447458	SFX_Weapons_SoundBlast	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Weapons_SoundBlast_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Weapons_SoundBlast	Sound for player sound shot. Use with "SoundShot" event.	359488
+	536627715	SFX_Weapons_LightBlast	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Weapons_LightBlast_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Weapons_LightBlast	Sound for player light shot. Use with "LightShot" event.	622144
+	832603975	SFX_Enemies_RobotDamaged1	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_RobotDamaged1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\RobotDamaged\SFX_Enemies_RobotDamaged1	Sound for robot enemy damage. Use in "RobotDamaged" random container.	184384
+	887777620	SFX_Enemies_CelloDamaged	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_CelloDamaged_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Enemies_CelloDamaged	Sound for damage to the cello enemy. Use with the "CelloDamaged" event.	184384
+	944922227	SFX_Combat_DamageTaken2	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Combat_DamageTaken2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerDamaged\SFX_Combat_DamageTaken2	Sound for player damage. Use in "PlayerDamaged" random container.	359488
+	1011289523	SFX_Enemies_RobotDamaged3	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Enemies_RobotDamaged3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\RobotDamaged\SFX_Enemies_RobotDamaged3	Sound for robot enemy damage. Use in "RobotDamaged" random container.	184384
+	1066904886	SFX_Combat_DamageTaken1	C:\Users\Efren\Documents\Brightsound\Brightsound\Brightsound_WwiseProject\.cache\Windows\SFX\SFX_Combat_DamageTaken1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerDamaged\SFX_Combat_DamageTaken1	Sound for player damage. Use in "PlayerDamaged" random container.	359488
+

@@ -7,8 +7,9 @@ public class Enemy : MonoBehaviour {
     public int damage = 1;
     public SpriteRenderer sprite;
 
-    public AudioClip[] damagedSounds;
-    public AudioClip[] deathSounds;
+    //This is a temp workaround for now
+    //Better way is probably for each enemy to be their own subclass of the enemy class
+    public string EnemyName;
 
     public void Damage(int damage)
     {
@@ -17,11 +18,17 @@ public class Enemy : MonoBehaviour {
         if (this.health <= 0)
         {
             Destroy(this.gameObject);
-            MasterGameManager.instance.audioManager.randomSFX(deathSounds);
+            if (EnemyName == "Cello")
+                AkSoundEngine.PostEvent("CelloDeath", this.gameObject);
+            if (EnemyName == "Robot")
+                AkSoundEngine.PostEvent("RobotDeath", this.gameObject);
         }
         else
         {
-            MasterGameManager.instance.audioManager.randomSFX(damagedSounds);
+            if (EnemyName == "Cello")
+                AkSoundEngine.PostEvent("CelloDamaged", this.gameObject);
+            if (EnemyName == "Robot")
+                AkSoundEngine.PostEvent("RobotDamaged", this.gameObject);
         }
     }
 

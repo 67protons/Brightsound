@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{EEEB6A55-3658-40A9-A5AF-27A1533A8289}" SchemaVersion="75">
+<WwiseDocument Type="WorkUnit" ID="{947D4FFB-2D8A-4D56-91F3-A0297723B588}" SchemaVersion="75">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{EEEB6A55-3658-40A9-A5AF-27A1533A8289}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{947D4FFB-2D8A-4D56-91F3-A0297723B588}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="PlayerSounds" ID="{34DFDAD5-A36D-4245-AADF-8062A1A72A21}">
+					<ObjectInclusionList>
+						<ObjectRef Name="CelloDeath" ID="{835A53B0-2DCA-409C-A92C-E9B9F01E754E}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="SoundShot" ID="{48D25E4B-B618-4184-AEAB-AC1A6FE1F134}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="LightShot" ID="{73464284-9DDC-42CA-A5B3-D45C9C41F100}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="CelloDamaged" ID="{A06E9E4B-CB53-4532-BA57-08C0457512BC}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="RobotDeath" ID="{FC567F76-DA07-45C7-B79A-04ED7DA7DA32}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="RobotDamaged" ID="{BE5990A2-56F0-45FE-BBA7-1A458D6FBC65}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Jump" ID="{5B0DAAEE-56A2-4650-A949-01E58857A6F1}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="PlayerDeath" ID="{BDC02763-DAB1-49BB-9D9A-DAAB71C3A511}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="DoubleJump" ID="{54890BD3-C300-4B11-8277-4E0AAB90C71F}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="PlayerDamaged" ID="{F6C070FE-5248-4DF9-9170-35FC425F338D}" WorkUnitID="{21EADCBC-3DE4-4497-9002-E96D5F350786}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>
